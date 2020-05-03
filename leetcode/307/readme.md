@@ -1,1 +1,0 @@
-# [range-sum-query-mutable](https://leetcode-cn.com/problems/range-sum-query-mutable)

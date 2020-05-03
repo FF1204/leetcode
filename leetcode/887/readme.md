@@ -1,1 +1,0 @@
-# [super-egg-drop](https://leetcode-cn.com/problems/super-egg-drop)

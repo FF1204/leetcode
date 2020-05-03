@@ -1,1 +1,0 @@
-# [daily-temperatures](https://leetcode-cn.com/problems/daily-temperatures)

@@ -1,1 +1,0 @@
-# [find-pivot-index](https://leetcode-cn.com/problems/find-pivot-index)

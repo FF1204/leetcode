@@ -1,1 +1,0 @@
-# [diving-board-lcci](https://leetcode-cn.com/problems/diving-board-lcci)

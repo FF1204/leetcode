@@ -1,1 +1,0 @@
-# [get-kth-magic-number-lcci](https://leetcode-cn.com/problems/get-kth-magic-number-lcci)

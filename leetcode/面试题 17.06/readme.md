@@ -1,1 +1,0 @@
-# [number-of-2s-in-range-lcci](https://leetcode-cn.com/problems/number-of-2s-in-range-lcci)

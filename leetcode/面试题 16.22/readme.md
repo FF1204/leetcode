@@ -1,1 +1,0 @@
-# [langtons-ant-lcci](https://leetcode-cn.com/problems/langtons-ant-lcci)

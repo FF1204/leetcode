@@ -1,1 +1,0 @@
-# [powx-n](https://leetcode-cn.com/problems/powx-n)
