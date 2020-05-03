@@ -1,5 +1,16 @@
 {
     "files.associations": {
-        "uthash.h": "c"
-    }
+        "uthash.h": "c",
+        "ctype.h": "c",
+        "stdbool.h": "c",
+        "cstdbool": "c",
+        "c++config.h": "c",
+        "vector": "cpp",
+        "string": "cpp",
+        "stdlib.h": "c",
+        "set": "cpp",
+        "stack": "cpp",
+        "iostream": "cpp"
+    },
+    "git.ignoreLimitWarning": true
 }

@@ -1,0 +1,1 @@
+# [rotate-list](https://leetcode-cn.com/problems/rotate-list)
