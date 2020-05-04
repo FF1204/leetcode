@@ -1,0 +1,43 @@
+site_name: 耿向飞的个人博客
+
+# show source code and eidt button
+repo_name: FF1204/leetcode
+repo_url: https://github.com/squidfunk/mkdocs-material
+markdown_extensions:
+  - markdown.extensions.admonition
+  - pymdownx.tabbed
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - markdown.extensions.toc:
+      permalink: true
+theme: 
+    name: material 
+    language: zh
+    palette:
+        primary: teal
+        accent: indigo
+
+    #highlightjs: true
+    #hljs_style: monokai #代码着色方案 https://highlightjs.org/static/demo/
+    #hljs_languages:
+     #   - yaml
+    #nav_style: dark
+    #titles_only: true
+    
+plugins:
+  # 搜索插件，默认不支持中文
+  # http://wyqbailey.github.io/2015/08/13/make-mkdocs-support-chinese.html
+  - search
+  # 该插件可以定义导航栏菜单出现，不出现哪些文件内容
+  # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin/blob/master/README.md
+  - awesome-pages
+  # 该插件可以屏蔽特定的文件和文件夹不生成
+  #- exclude:
+      #glob:
+        #- exclude/this/path/*
+        #- "*.c"
+        #- "*.cpp"
+        #- "*.py"
+      #regex:
+        #- '.*\.(tmp|bin|tar)$'
