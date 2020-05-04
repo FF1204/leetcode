@@ -2,7 +2,7 @@ site_name: FEIFEI的个人博客
 
 # show source code and eidt button
 repo_name: FF1204/leetcode
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_url: https://github.com/FF1204/leetcode
 markdown_extensions:
   - markdown.extensions.admonition
   - pymdownx.tabbed
