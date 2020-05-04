@@ -14,6 +14,6 @@ after_success:  |
     git init
     git add .
     git -c user.name=$GITHUB_NAME -c user.email=$GITHUB_EMAIL commit -m "Auto Deployment"
-    git push -f -q https://$GITHUB_NAME:$GITHUB_API_KEY@github.com/FF1204/leetcode.git gh-pages
+    git push -f -q https://$GITHUB_NAME:$GITHUB_API_KEY@github.com/FF1204/leetcode.git master
     cd "$TRAVIS_BUILD_DIR"
   fi
