@@ -4,6 +4,7 @@ python:
 install:
   - pip install mkdocs
   - pip install mkdocs-material
+  - pip install mkdocs-awesome-pages-plugin
 script:
   - mkdocs build --clean
 after_success:  |
