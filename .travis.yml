@@ -1,0 +1,17 @@
+language: python
+python:
+-  3.7
+install:
+  - pip install mkdocs
+script:
+  - mkdocs build --clean
+after_success:  |
+  if [ -n "$GITHUB_API_KEY" ]; then
+    cd "$TRAVIS_BUILD_DIR"
+    cd site
+    git init
+    git add .
+    git -c user.name=$GITHUB_NAME -c user.email=$GITHUB_EMAIL commit -m "Auto Deployment"
+    git push -f -q https://$GITHUB_NAME:$GITHUB_API_KEY@github.com/FF1204/leetcode.git gh-pages
+    cd "$TRAVIS_BUILD_DIR"
+  fi
