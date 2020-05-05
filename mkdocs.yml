@@ -25,10 +25,10 @@ plugins:
   # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin/blob/master/README.md
   - awesome-pages
   # generate sigle pdf with menu
-  - mkpdfs
+  #- mkpdfs
   - add-number:
         strict_mode: False
-        order: 1
+        order: 2
         excludes:
             - sql/
             - command/rsync
