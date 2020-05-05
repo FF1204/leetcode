@@ -17,13 +17,6 @@ theme:
     palette:
         primary: teal
         accent: indigo
-
-    #highlightjs: true
-    #hljs_style: monokai #代码着色方案 https://highlightjs.org/static/demo/
-    #hljs_languages:
-     #   - yaml
-    #nav_style: dark
-    #titles_only: true
     
 plugins:
   # 搜索插件，默认不支持中文
