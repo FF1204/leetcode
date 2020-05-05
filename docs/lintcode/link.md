@@ -1,17 +1,8 @@
----
-title: 算法专题_链表2
-toc: true
-
-tags:
-  - ACM
-date: 2017-07-26 18:46:20
----
-
-【翻转链表】【删除重复元素】【判断有环】【合并链表】【复杂链表的复制】【...】
+# 链表相关题目
 
 <!-- more -->
 
-### [反转链表](http://lintcode.com/zh-cn/problem/reverse-linked-list/)
+## [反转链表](http://lintcode.com/zh-cn/problem/reverse-linked-list/)
 
 ```c
 /**
@@ -39,7 +30,7 @@ ListNode *reverse(ListNode *head){
 }
 ```
 
-### [局部翻转链表](http://lintcode.com/zh-cn/problem/reverse-linked-list-ii/)
+## [局部翻转链表](http://lintcode.com/zh-cn/problem/reverse-linked-list-ii/)
 
 ```c
 ListNode * reverseBetween(ListNode * head, int m, int n) {
@@ -83,7 +74,7 @@ ListNode * reverseBetween(ListNode * head, int m, int n) {
 }
 ```
 
-### [K组翻转链表](http://lintcode.com/zh-cn/problem/reverse-nodes-in-k-group/)
+## [K组翻转链表](http://lintcode.com/zh-cn/problem/reverse-nodes-in-k-group/)
 
 ```c
 ListNode *reverseKGroup(ListNode *head, int k) {
@@ -126,7 +117,7 @@ ListNode *reverseKGroup(ListNode *head, int k) {
 }
 ```
 
-### [删除链表中倒数第n个节点](http://lintcode.com/zh-cn/problem/remove-nth-node-from-end-of-list/#)
+## [删除链表中倒数第n个节点](http://lintcode.com/zh-cn/problem/remove-nth-node-from-end-of-list/#)
 
 使用两个指针，遍历一遍链表就能解决；
 
@@ -159,7 +150,7 @@ ListNode *removeNthFromEnd(ListNode *head, int n) {
 }
 ```
 
-### [判断链表是否有环](http://lintcode.com/zh-cn/problem/linked-list-cycle/)
+## [判断链表是否有环](http://lintcode.com/zh-cn/problem/linked-list-cycle/)
 
 ```c
 /**
@@ -188,7 +179,7 @@ bool hasCycle(ListNode *head) {
 }
 ```
 
-### [判断链表是否相交](http://lintcode.com/zh-cn/problem/intersection-of-two-linked-lists/)
+## [判断链表是否相交](http://lintcode.com/zh-cn/problem/intersection-of-two-linked-lists/)
 
 两种思路： 一种先遍历一遍两个链表，得出每个链表的长度，将尾部对其，判断
 
@@ -227,7 +218,7 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 }
 ```
 
-### [合并K个排序的链表](http://lintcode.com/zh-cn/problem/merge-k-sorted-lists/)
+## [合并K个排序的链表](http://lintcode.com/zh-cn/problem/merge-k-sorted-lists/)
 
 1. 第一方法，用一个数组保存K个链表的头指针，每次都比较K个元素的大小，选出最小的元素，链接到新的链表的结尾，然后该链表向下一个节点移动一位。
 
@@ -401,7 +392,7 @@ ListNode *mergeKLists(vector<ListNode *> &lists) {
 }
 ```
 
-### [带随机指针链表的复制|复杂链表的复制](http://lintcode.com/zh-cn/problem/copy-list-with-random-pointer/)
+## [带随机指针链表的复制|复杂链表的复制](http://lintcode.com/zh-cn/problem/copy-list-with-random-pointer/)
 
 使用O（1）的额外空间完成链表的复制，基本思路是把拷贝的新节点链接在原来节点的后面，设置完随机指针之后再断开与原来旧链表的连接。
 
@@ -436,7 +427,7 @@ RandomListNode *copyRandomList(RandomListNode *head) {
 }
 ```
 
-### [删除链表元素](http://lintcode.com/zh-cn/problem/remove-linked-list-elements/)
+## [删除链表元素](http://lintcode.com/zh-cn/problem/remove-linked-list-elements/)
 
 删除链表节点为某个值的所有元素。(某个值可能有多个，也可能全部都是)
 
@@ -489,7 +480,7 @@ ListNode *removeElements(ListNode *head, int val) {
 }
 ```
 
-### [在O(1)时间复杂度删除链表节点](http://lintcode.com/zh-cn/problem/delete-node-in-the-middle-of-singly-linked-list/)
+## [在O(1)时间复杂度删除链表节点](http://lintcode.com/zh-cn/problem/delete-node-in-the-middle-of-singly-linked-list/)
 
 思路：给出要删除的节点，是不可能在O(1)的时间内删除该节点的，因为想要删除该节点，必须找到它前面的节点，这个操作只能从头遍历(在没有指向前面的指针的情况下)，复杂度不可能是O(1). 但是可以把要删除的节点后面的节点的值赋给要删除的节点，再删除要删除的节点后面的节点，这样'看起来'好像删除了当前的节点。实际上在计算机内存中真正的变化是要删除的节点的值变成了它后面节点的值.
 
@@ -501,7 +492,7 @@ void deleteNode(ListNode *node) {
 }
 ```
 
-### [删除排序链表中的重复元素](http://lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-list/)
+## [删除排序链表中的重复元素](http://lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-list/)
 
 给定一个排序链表，删除所有重复的元素每个重复元素只留下一个。
 
@@ -550,7 +541,7 @@ ListNode *deleteDuplicates(ListNode *head) {
         return head;
 }
 ```
-### [删除排序链表中的重复元素2](http://lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-list-ii/)
+## [删除排序链表中的重复元素2](http://lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-list-ii/)
 
 给定一个排序链表，删除所有重复的元素只留下原链表中没有重复的元素。
 
@@ -608,7 +599,7 @@ ListNode * deleteDuplicates(ListNode *head) {
 }
 ```
 
-### 删除单向链表中倒数第K个节点
+## 删除单向链表中倒数第K个节点
 
 例如：`head-->1-->2-->3-->4-->5-->6`  K=2
 返回：`head-->1-->2-->3-->4-->6`
@@ -664,7 +655,7 @@ ListNode *removeNthFromEnd(ListNode *head, int n) {
 }
 ```
 
-### 查找链表的中间节点
+## 查找链表的中间节点
 
 思路： 设置两个指针同时指向头部，一个指针每次移动两步，一个指针每次移动一步，这样在快的指针走到尽头的时候，慢的指针恰好走到了中部。
 
@@ -685,7 +676,7 @@ ListNode* findMiddle(ListNode* head){
 }
 ```
 
-### 插入排序（使用单链表实现）
+## 插入排序（使用单链表实现）
 
 ```c
 ListNode *insertionSortList(ListNode *head) {
@@ -727,7 +718,7 @@ ListNode *insertionSortList(ListNode *head) {
 }
 ```
 
-### 快速排序(单链表实现)
+## 快速排序(单链表实现)
 
 快速排序一般的思想是首尾两个指针相向运动，但是单链表没有向前的指针，这要求我们换一种思路。如何从前往后遍历找到支点的位置。假设支点的值是value. 我们需要遍历一遍链表，使得所有小于value的值都在前面，所有大于value的值都在后面，这个时候就找到的value应该在的位置。
 
@@ -736,7 +727,7 @@ ListNode *insertionSortList(ListNode *head) {
 
 ```
 
-### [交换链表当中两个节点](http://lintcode.com/zh-cn/problem/swap-two-nodes-in-linked-list/)
+## [交换链表当中两个节点](http://lintcode.com/zh-cn/problem/swap-two-nodes-in-linked-list/)
 
 给你一个链表以及两个权值v1和v2，交换链表中权值为v1和v2的这两个节点。保证链表中节点权值各不相同，如果没有找到对应节点，那么什么也不用做。
 
@@ -798,7 +789,7 @@ ListNode* swapNodes(ListNode* head, int v1, int v2) {
 }
 ```
 
-### [两两交换链表中的节点](http://lintcode.com/zh-cn/problem/swap-nodes-in-pairs/)
+## [两两交换链表中的节点](http://lintcode.com/zh-cn/problem/swap-nodes-in-pairs/)
 
 给一个链表，两两交换其中的节点，然后返回交换后的链表。
 
@@ -830,7 +821,7 @@ ListNode* swapPairs(ListNode* head) {
     }
 ```
 
-### [旋转链表](http://lintcode.com/zh-cn/problem/rotate-list/)
+## [旋转链表](http://lintcode.com/zh-cn/problem/rotate-list/)
 
 ```c
 ListNode *rotateRight(ListNode *head, int k) {
@@ -858,7 +849,7 @@ ListNode *rotateRight(ListNode *head, int k) {
 }
 ```
 
-### [首尾交错重排链表](http://lintcode.com/zh-cn/problem/reorder-list/)
+## [首尾交错重排链表](http://lintcode.com/zh-cn/problem/reorder-list/)
 
 给定一个单链表L: L0→L1→…→Ln-1→Ln,重新排列后为：L0→Ln→L1→Ln-1→L2→Ln-2→…必须在不改变节点值的情况下进行原地操作。
 
@@ -945,7 +936,7 @@ ListNode* reorderList(ListNode *head) {
 }
 ```
 
-### [回文链表](http://lintcode.com/zh-cn/problem/palindrome-linked-list/)
+## [回文链表](http://lintcode.com/zh-cn/problem/palindrome-linked-list/)
 
 判断一个链表中的值是否是回文
 
@@ -977,7 +968,7 @@ bool isPalindrome(ListNode* head) {
 }
 ```
 
-### [链表求和](http://lintcode.com/zh-cn/problem/add-two-numbers/)
+## [链表求和](http://lintcode.com/zh-cn/problem/add-two-numbers/)
 
 你有两个用链表代表的整数，其中每个节点包含一个数字。数字存储按照在原来整数中相反的顺序，使得第一个数字位于链表的开头。写出一个函数将两个整数相加，用链表形式返回和。
 
@@ -1024,7 +1015,7 @@ ListNode *addLists(ListNode *l1, ListNode *l2) {
 }
 ```
 
-### [链表求和 II](http://lintcode.com/zh-cn/problem/add-two-numbers-ii/#)
+## [链表求和 II](http://lintcode.com/zh-cn/problem/add-two-numbers-ii/#)
 
 假定用一个链表表示两个数，其中每个节点仅包含一个数字。假设这两个数的数字顺序排列，请设计一种方法将两个数相加，并将其结果表现为链表的形式。
 
