@@ -28,7 +28,7 @@ macro DiffCurrentFile()
 }
 ```
 
-## clang-format实现一键格式化代码
+## 集成clang-format
 
 用 Python 写一个程序实现调用 clang-format.exe 格式化代码。
 
