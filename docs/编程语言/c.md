@@ -12,6 +12,41 @@
 #include <uthash.h>
 ```
 
+## 四舍五入
+
+```c
+// 四舍五入保留两位小数
+float number = 1.2768;
+number = (int)(100 * number + 0.5) / 100.0
+printf("%.2f", number);
+```
+
+## 输入输出
+
+### 读取
+
+- `char c = getchar();` : 读取一个字符
+- `gets(string);` : 读取一行字符
+- 读取若干行：
+
+当没有指定输入是多少行， 以结束快捷键结束输入的时候，按照下面方式读取
+
+```c
+while (scanf("%d", &n) != EOF) {
+    printf("%d ", n);
+}
+```
+
+### 重定向
+
+```c
+freopen("input.txt", stdin); // 标准输入重定向到文件
+freopen("output.txt", stdout); // 标准输出重定向到文件
+
+fclose(stdin);
+fclose(stdout);
+```
+
 ## 数据结构
 
 ### 哈希表(uthash)
@@ -52,6 +87,12 @@ if (currMap == NULL) {
 
 ```c
 
+```
+
+#### 大小
+
+```c
+size = HASH_COUNT(HashMap);
 ```
 
 #### 遍历和删除

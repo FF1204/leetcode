@@ -34,6 +34,11 @@ plugins:
             - command/rsync
         includes:
             - sql/MySQL
+  - render-otherfile:
+      ext:
+          - .c
+          - .cpp
+          - .py
   # 该插件可以屏蔽特定的文件和文件夹不生成
   #- exclude:
       #glob:
