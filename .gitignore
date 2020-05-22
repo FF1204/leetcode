@@ -1,2 +1,3 @@
 tmp/
 site/
+.pytest_cache/
