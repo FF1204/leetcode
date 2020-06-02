@@ -39,4 +39,9 @@
 
 ## 解题思路
 
+dp[i][j] 表示使用 string1 前 i 个字符， string2 前 j 个字符的情况下，得到的最长公共子序列
+dp[i][j] = dp[i-1][j-1], if string1[i] == string2[j]
+         = max(dp[i-1][j], dp[i][j-1]), if string1[i] == string2[j]
 ## AC代码
+
+[Python](1143.py)

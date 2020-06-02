@@ -19,7 +19,7 @@
                 "/usr/include/c++/8",
                 "-o",
                 "/mnt/d/FF120/workspace/leetcode/tmp/${fileBasename}.out",
-                "/mnt/d/FF120/workspace/leetcode/leetcode/${fileBasenameNoExtension}/${fileBasename}"
+                "/mnt/d/FF120/workspace/leetcode/docs/leetcode/${fileBasenameNoExtension}/${fileBasename}"
             ],
             "group": {
                 "kind": "build",
