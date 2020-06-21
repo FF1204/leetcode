@@ -3,9 +3,28 @@ site_name: FEIFEI的个人博客
 # show source code and eidt button
 repo_name: FF1204/leetcode
 repo_url: https://github.com/FF1204/leetcode
+# https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
 markdown_extensions:
   - markdown.extensions.admonition
   - pymdownx.tabbed
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
   - codehilite:
       guess_lang: false
       linenums: true
@@ -17,7 +36,11 @@ theme:
     palette:
         primary: teal
         accent: indigo
-    
+
+# 数学公式的显示 
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+
 plugins:
   # http://wyqbailey.github.io/2015/08/13/make-mkdocs-support-chinese.html
   - search
