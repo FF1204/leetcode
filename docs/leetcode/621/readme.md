@@ -38,4 +38,5 @@
 ## AC代码
 
 - [Python](621.py)
+- [Python](621_2.py)
 

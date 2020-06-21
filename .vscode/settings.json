@@ -10,7 +10,8 @@
         "stdlib.h": "c",
         "set": "cpp",
         "stack": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "random": "c"
     },
     "git.ignoreLimitWarning": true,
     "python.testing.pytestArgs": [
