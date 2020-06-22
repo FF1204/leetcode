@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "GDB: 当前文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/mnt/d/FF120/workspace/leetcode/tmp/${fileBasename}.out",
+            "args": ["-fThreading"],
+            "stopAtEntry": true,
+            "cwd": "/mnt/d/FF120/workspace/leetcode/",
+            "environment": [],
+            "externalConsole": true,
+            "windows": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "pipeTransport": {
+                "pipeCwd": "",
+                "pipeProgram": "c:\\windows\\System32\\bash.exe",
+                "pipeArgs": ["-c"],
+                "debuggerPath": "/usr/bin/gdb"
+            },
+            "sourceFileMap": {
+                "/mnt/d": "d://",
+                "/usr": "C:\\Users\\FF120\\AppData\\Local\\Packages\\KaliLinux.54290C8133FEE_ey8k8hqnwqnmg\\LocalState\\rootfs\\usr\\"
+            },
+            "preLaunchTask" : "build"
+        }
+    ]
+}
