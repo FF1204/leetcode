@@ -1,17 +1,37 @@
-# 配置多种编译环境
+# VS Code 配置多种编译调试环境
 
-vscode 实现一个工程编译C， C++， python 三种语言。
+VS Code 是使用语言服务器实现的编译调试，所以可以配置多种编译调试环境。
+根据文件选择不同的编译调试命令，可以实现在一个编辑器中编写各种不同的语言，非常方便。
 
-## 前期准备
+## Python 环境配置
 
-1. C， C++ 使用 win10 的 wsl, 安装 wsl
-2. 安装python
+`launch.json` 中添加如下配置
 
-## 配置文件
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}", // ${file} 是内置变量，解析成当前文件路径
+            "console": "integratedTerminal"
+        }
+    ]
+}
+```
 
-tasks.json 中添加 c, c++ 编译支持
+## C, C++ 环境配置
 
-```shell
+### Windows 下使用 WSL 编译和调试
+
+`task.json` 中配置
+
+```json
 {
     "version": "2.0.0",
     "windows": {
@@ -29,9 +49,11 @@ tasks.json 中添加 c, c++ 编译支持
             "command": "g++",
             "args": [
                 "-g",
+                "-I",
+                "/usr/include/c++/8",
                 "-o",
                 "/mnt/d/FF120/workspace/leetcode/tmp/${fileBasename}.out",
-                "/mnt/d/FF120/workspace/leetcode/leetcode/${fileBasenameNoExtension}/${fileBasename}"
+                "/mnt/d/FF120/workspace/leetcode/docs/leetcode/${fileBasenameNoExtension}/${fileBasename}"
             ],
             "group": {
                 "kind": "build",
@@ -43,22 +65,15 @@ tasks.json 中添加 c, c++ 编译支持
 }
 ```
 
-launch.json 中添加 c, c++, python debug 支持：
+`launch.json` 中配置
 
-```shell
+```json
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Python: 当前文件",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        },
         {
             "name": "GDB: 当前文件",
             "type": "cppdbg",
@@ -96,11 +111,9 @@ launch.json 中添加 c, c++, python debug 支持：
 }
 ```
 
-注意 tasks.json 中配置的路径， 文件名称要和 launch.json 中配置的吻合。把其中具体的路径按照需要改成自己的路径即可。
+`c_cpp_properties.json` 中配置, 用来支持智能提示和跳转到头文件
 
-配置 c_cpp_properties.json 实现头文件包含跳转
-
-```shell
+```json
 {
     "configurations": [
         {
@@ -123,12 +136,87 @@ launch.json 中添加 c, c++, python debug 支持：
 }
 ```
 
-## 效果
+### Windows下只运行client, WSL 下安装VS Code Server编译和调试
 
-![](vscode.png)
+`task.json` 中配置
 
-1. c, c++ 编译环境依赖 wsl, 不二外安装软件
-2. c, C++, python debug 生成的文件在 tmp 目录， 不污染原来目录
-3. 根据源文件类型， 选择编译选项
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "g++ build active file",
+        "command": "/usr/bin/g++",
+        "args": ["-g", "${file}", "-o", "${file}.o"],
+        "options": {
+          "cwd": "/usr/bin"
+        },
+        "problemMatcher": ["$gcc"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+}
+```
 
-想实现根据文件扩展名自动选择调用哪个编译配置，暂时没有找到如何设置。
+`launch.json` 中配置
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${file}.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+              {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+              }
+            ],
+            "preLaunchTask": "g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+          }
+    ]
+}
+```
+
+`c_cpp_properties.json` 中配置
+
+```json
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
+```
