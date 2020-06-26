@@ -75,6 +75,4 @@ ans = s.numIslands(grid)
 assert ans == expected
 
 
-
-
 end = 10
