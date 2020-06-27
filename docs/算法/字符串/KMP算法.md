@@ -1,74 +1,4 @@
-# 字符串
-
-## Boyer Moore
-
-Boyer Moore 算法从模式串的最后一个字符匹配；
-Boyer Moore 算法预处理模式串， 生成坏字符规则 和 好后缀规则，每次选取两个规则中向后移动距离最大的那个。
-使用坏字符规则 和 好后缀规则任意一个也可以完成算法，只是效率可能略低。
-
-### 坏字符规则
-
-设模式串P， 要搜索的串为S， 对其S和P，从S最后一个字符开始比较，第一个不匹配的字符称为坏字符(在S中)。
-
-1. 如果坏字符在P中， 移动P使得P中的坏字符和S中的坏字符对其；
-2. 如果坏字符不在P中，移动P越过坏字符直接匹配下一个|P|的长度。
-
-```python
-
-MAX_OF_CHARS = 256
-
-def badCharHeuristic(string, size): 
-    ''' 
-    生成坏字符规则, 记录每个字符出现的索引位置，没有出现的设置为 -1
-    '''
-    badChar = [-1] * MAX_OF_CHARS 
-
-    for i in range(size): 
-        badChar[ ord(string[i]) ] = i
-
-    return badChar
-
-def search(string, pattern): 
-    ''' 
-    只使用坏字符规则的Boyer Moore字符串匹配算法
-    '''
-    m = len(pattern) 
-    n = len(string) 
-
-    badChars = badCharHeuristic(pattern, m) 
-
-    # s is shift of the pattern with respect to text 
-    s = 0
-    while s <= n - m: 
-        # j 指向 s 最后一个字符，找到第一个不匹配的字符的位置
-        j = m - 1
-        while j >= 0 and pattern[j] == string[s + j]: 
-            j -= 1
-
-        # 如果 j 小于0， 表示找到了一个匹配，输出结果，继续查找下一个匹配
-        if j < 0: 
-            print("Pattern occur at shift = {}".format(s)) 
-
-            # 如果 s + m 小于 n, 直接对其S中最后一个字符
-            if s + m < n:
-                s += m - badChars[ ord(string[s + m]) ]
-            else:
-                s += 1
-        else: 
-            s += max(1, j - badChars[ ord(string[s + j]) ]) 
-    return 0
-
-txt = "ABAAABCD"
-pat = "ABC"
-search(txt, pat) 
-```
-
-参考文献：https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/
-
-### 好后缀规则
-
-
-## KMP 算法
+# KMP 算法
 
 设有字符串T，模式串P，要从T中找出P，通常的做法是逐个比较T和P的第一个字符，如果相同，就比较T和P的第二个字符，一旦匹配失败，T后移一个字符重新开始与P的第一个字符比较。但是这样的方法如果遇到特别"刁钻"的T和P的组合，就会浪费很多比较的时间，例如，每次都是比较到P的最后一个字符才不匹配。KMP算法就是为了减少不必要的比较，使得每次比较不成功的时候，P可以向后移动尽可能远的距离。
 
@@ -226,10 +156,3 @@ int KmpSearch(string &s, string &p)
     return count;
 }
 ```
-
-## 相关题目
-
-|LeetCode题目                                 | 难度  |
-|:--------------------------------------------|:-----:|
-[468. 验证IP地址](../leetcode/468/readme.md)| 中等
-[1410. HTML 实体解析器](../leetcode/1410/readme.md) | 中等
