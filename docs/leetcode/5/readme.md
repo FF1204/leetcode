@@ -99,6 +99,53 @@ class Solution:
 
 https://segmentfault.com/a/1190000008484167
 
-#### C++
 
 #### python
+
+```python
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        # 预处理字符串，每个间隔中插入一个未出现的字符 '#'
+        s = '#' + "".join([c + '#' for c in s])
+        s = '^' + s + '$' # 首尾附加不同字符避免边界判断
+        n = len(s)
+        lps = [1] * n
+
+        lid, mid, rid = 0, 0, 0
+        i = 1 # s[0] 是 '^'没有必要计算
+        center = 0 # 记录最长回文中心位置，用来生成回文
+        ans = 0 # 最长回文的长度
+        while i < n - 1:
+            if i < rid:
+                # i' = 2 * mid - i 是 i 关于 mid 的对称点
+                lps[i] = min(lps[2 * mid - i], rid - i)
+
+            # lps[i] 初始化为1，因为任意一个字符都是半径为1的回文
+            # 以 i 为中心向两边扩展，直到不能再扩展为止
+            # 因为首尾新增了两个不一样的字符，所以到边界一定会停止
+            while s[i - lps[i]] == s[i + lps[i]]:
+                lps[i] += 1
+
+            # 通过上面的循环，我们已经计算出 lps[i]
+            # 如果 i + lps[i] > rid, 说明经过扩展边界已经超过 rid
+            # 更新 mid 为 i, 因为 lps[i] 已经计算得到
+            # 更新 rid 为 mid + lps[mid]
+            if rid < i + lps[i]:
+                mid = i
+                rid = mid + lps[mid]
+
+            if ans < lps[i] - 1:
+                ans = lps[i] - 1
+                center = i
+            # 如果 i + lps[i] < rid, 说明 i 的边界还没有越过 mid 的边界
+            # 可以继续计算 i + 1, 依旧利用 mid 的堆称信息
+            i += 1
+
+        string = s[center-ans : center + ans]
+        string = string.replace("#", "")
+        return string
+ ```
