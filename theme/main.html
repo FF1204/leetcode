@@ -21,9 +21,10 @@
 		(function() {
 			var table_element = $('div.table_filter_start').nextUntil('div.table_filter_end', 'table');
 			table_element.attr('id', 'table_filter');
-			table_element.attr('data-filter-control', 'false');
+			table_element.attr('data-filter-control', 'false'); 
 			table_element.attr('data-search', 'true');
 			table_element.addClass('table-sm');
+			table_element.addClass('table-striped');
 			
 			var th_element = $('#table_filter thead th');
 			var count = th_element.length;
