@@ -33,6 +33,7 @@ markdown_extensions:
 theme: 
     name: material 
     language: zh
+    custom_dir: theme
     palette:
         primary: teal
         accent: indigo

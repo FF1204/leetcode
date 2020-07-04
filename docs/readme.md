@@ -2,6 +2,8 @@
 
 ## [Leetcode](https://leetcode-cn.com/)
 
+<div class="table_filter_start"></div>
+
 | 星标 | 难度 | 数据结构和算法 |                           题目                                      |
 | :---:|:----:|:-------------|---------------------------------------------------------------------|
 |   L  | 简单 | 哈希表 | [1. 两数之和](leetcode/1/readme.md)  
@@ -98,7 +100,7 @@
 |   L  | 中等 | 无 | [769. 最多能完成排序的块](leetcode/769/readme.md)  
 |   H  | 中等 | 无 | [775. 全局倒置与局部倒置]()  
 |   H  | 中等 | 无 | [779. 第K个语法符号]() 
-|   L  | 中等 | 哈希表 | [792. 匹配子序列的单词数](leetcode/792/readme.txt)                                    
+|   L  | 中等 | 哈希表 | [792. 匹配子序列的单词数](leetcode/792/readme.md)                                    
 |   L  | 中等 | 所有路径 | [797. 所有可能的路径](leetcode/797/readme.md)                       
 |   L  | 困难 | 并查集 | [839. 相似字符串组](leetcode/839/readme.md)  
 |   L  | 中等 | 无 | [848. 字母移位](leetcode/848/readme.md)                               
@@ -154,6 +156,7 @@
 |   M  | 中等 |  图, 最短路径 | [1418. 点菜展示表]()
 |   L  | 简单 | 无 | [1410. HTML 实体解析器](leetcode/1410/readme.md)  
 
+<div class="table_filter_end"></div>
 
 ## [lintcode](https://www.lintcode.com/)
 
