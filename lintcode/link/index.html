@@ -1,0 +1,2314 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>链表相关题目 - FEIFEI</title>
+      
+    
+    
+	
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    
+	
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="FEIFEI" class="md-header-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            FEIFEI
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              链表相关题目
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FEIFEI" class="md-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    FEIFEI
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../readme/" title="题目汇总" class="md-nav__link">
+      题目汇总
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      工具
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="工具" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Linux 常用命令" class="md-nav__link">
+      Linux 常用命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/SourceInsight%E5%AE%8F/" title="SouceInsight宏的使用" class="md-nav__link">
+      SouceInsight宏的使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/gdb%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" title="GDB调试技巧" class="md-nav__link">
+      GDB调试技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/mkdocs/" title="mkdocs" class="md-nav__link">
+      mkdocs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" title="VS Code 配置多种编译调试环境" class="md-nav__link">
+      VS Code 配置多种编译调试环境
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      数据结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数据结构" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        数据结构
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88/" title="栈" class="md-nav__link">
+      栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%98%9F%E5%88%97/" title="队列" class="md-nav__link">
+      队列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" title="链表" class="md-nav__link">
+      链表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表" class="md-nav__link">
+      哈希表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树" class="md-nav__link">
+      二叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%9A%E5%8F%89%E6%A0%91/" title="多叉树" class="md-nav__link">
+      多叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      图
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="图" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        图
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E5%9B%BE%28%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%29/" title="图(基础知识)" class="md-nav__link">
+      图(基础知识)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树" class="md-nav__link">
+      最小生成树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" title="最短路径问题" class="md-nav__link">
+      最短路径问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E7%BD%91%E7%BB%9C%E6%B5%81/" title="网络流" class="md-nav__link">
+      网络流
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F/" title="排序" class="md-nav__link">
+      排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%8D%E8%BF%90%E7%AE%97/" title="位运算" class="md-nav__link">
+      位运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E6%A0%91/" title="字典树(Trie树)" class="md-nav__link">
+      字典树(Trie树)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/" title="堆" class="md-nav__link">
+      堆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集" class="md-nav__link">
+      并查集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" title="树状数组" class="md-nav__link">
+      树状数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树[区间树]" class="md-nav__link">
+      线段树[区间树]
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      算法
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="算法" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/" title="N皇后问题" class="md-nav__link">
+      N皇后问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95/" title="分治法" class="md-nav__link">
+      分治法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划" class="md-nav__link">
+      动态规划
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="博弈论" class="md-nav__link">
+      博弈论
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9B%E7%AD%89%E5%88%86%E6%95%B0%E7%BB%84/" title="四等分数组" class="md-nav__link">
+      四等分数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%96%87/" title="回文算法和题目" class="md-nav__link">
+      回文算法和题目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%A4%A7%E6%95%B0%E6%8D%AE/" title="算法专题_大数据和空间限制" class="md-nav__link">
+      算法专题_大数据和空间限制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%BE%AA%E7%8E%AF%E5%8F%B3%E7%A7%BB/" title="循环右移" class="md-nav__link">
+      循环右移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" title="排列组合" class="md-nav__link">
+      排列组合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95/" title="摩尔投票法" class="md-nav__link">
+      摩尔投票法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%A8%A1%E8%BF%90%E7%AE%97/" title="算法专题_模运算" class="md-nav__link">
+      算法专题_模运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E7%B4%A0%E6%95%B0%E9%97%AE%E9%A2%98/" title="算法专题_素数问题" class="md-nav__link">
+      算法专题_素数问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%8A%B1%E5%BC%8F%E9%81%8D%E5%8E%86/" title="矩阵的遍历" class="md-nav__link">
+      矩阵的遍历
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="算法专题_计算几何" class="md-nav__link">
+      算法专题_计算几何
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E6%B3%95/" title="贪心算法" class="md-nav__link">
+      贪心算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E6%90%9C%E7%B4%A2/" title="递归搜索" class="md-nav__link">
+      递归搜索
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-17" type="checkbox" id="nav-4-17">
+    
+    <label class="md-nav__link" for="nav-4-17">
+      字符串
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="字符串" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-17">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Aho-Corasick%E7%AE%97%E6%B3%95/" title="Aho-Corasick 算法" class="md-nav__link">
+      Aho-Corasick 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Boyer%20Moore%E7%AE%97%E6%B3%95/" title="Boyer Moore" class="md-nav__link">
+      Boyer Moore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/KMP%E7%AE%97%E6%B3%95/" title="KMP 算法" class="md-nav__link">
+      KMP 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Rabin-Karp%E7%AE%97%E6%B3%95/" title="Rabin-Karp 算法" class="md-nav__link">
+      Rabin-Karp 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Z%E7%AE%97%E6%B3%95/" title="Z 算法" class="md-nav__link">
+      Z 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%B4%E7%B4%A0%E7%AE%97%E6%B3%95/" title="朴素算法" class="md-nav__link">
+      朴素算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="有限自动机" class="md-nav__link">
+      有限自动机
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-18" type="checkbox" id="nav-4-18">
+    
+    <label class="md-nav__link" for="nav-4-18">
+      排序
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="排序" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-18">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        排序
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" title="希尔排序" class="md-nav__link">
+      希尔排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序" class="md-nav__link">
+      归并排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" title="排序算法比较" class="md-nav__link">
+      排序算法比较
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%A1%B6%E6%8E%92%E5%BA%8F/" title="桶排序" class="md-nav__link">
+      桶排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      编程语言
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        编程语言
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%2B%2B/" title="C++ 语言基础知识" class="md-nav__link">
+      C++ 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/" title="C 语言基础知识" class="md-nav__link">
+      C 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/leetcode/" title="leetcode 常用函数" class="md-nav__link">
+      leetcode 常用函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/python/" title="Python 语言基础知识" class="md-nav__link">
+      Python 语言基础知识
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 反转链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 局部翻转链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-k" class="md-nav__link">
+    3. K组翻转链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-n" class="md-nav__link">
+    4. 删除链表中倒数第n个节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 判断链表是否有环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 判断链表是否相交
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-k" class="md-nav__link">
+    7. 合并K个排序的链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 带随机指针链表的复制|复杂链表的复制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 删除链表元素
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-o1" class="md-nav__link">
+    10. 在O(1)时间复杂度删除链表节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11. 删除排序链表中的重复元素
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-2" class="md-nav__link">
+    12. 删除排序链表中的重复元素2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-k" class="md-nav__link">
+    13. 删除单向链表中倒数第K个节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14. 查找链表的中间节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    15. 插入排序（使用单链表实现）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    16. 快速排序(单链表实现)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    17. 交换链表当中两个节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    18. 两两交换链表中的节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    19. 旋转链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    20. 首尾交错重排链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    21. 回文链表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    22. 链表求和
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-ii" class="md-nav__link">
+    23. 链表求和 II
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FF1204/leetcode/edit/master/docs/lintcode/link.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="_1">链表相关题目<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<!-- more -->
+
+<h2 id="1">1. <a href="http://lintcode.com/zh-cn/problem/reverse-linked-list/">反转链表</a><a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm">* 1. 如果是空链表，或者只有一个元素，直接返回头节点</span>
+<span class="cm">* 2. pre --&gt; head, iter --&gt; head-&gt;next, pre-&gt;next = nullptr;</span>
+<span class="cm">* pre 指向第一个元素，iter指向第二个节点(可能为空，为空说明到达了链表的结尾)，断开前两个节点之间的连接</span>
+<span class="cm">* 3. while(iter!=nullptr) 转换pre iter指向的节点的连接。</span>
+<span class="cm">* 首先用一个新的节点变量存储iter的下一个节点信息，node = iter-&gt;next</span>
+<span class="cm">* iter-&gt;next = pre;</span>
+<span class="cm">* pre = iter;</span>
+<span class="cm">* iter = node;</span>
+<span class="cm">*/</span>
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">reverse</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="p">){</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="n">iter</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">pre</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="2">2. <a href="http://lintcode.com/zh-cn/problem/reverse-linked-list-ii/">局部翻转链表</a><a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span> <span class="nf">reverseBetween</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span> <span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 翻转从m到n之间的链表，连接在原来的链表上</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">||</span> <span class="n">m</span> <span class="o">&lt;=</span><span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">&lt;=</span><span class="mi">0</span> <span class="o">||</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="c1">// 1. 增加一个头节点</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">g</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">g</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">g</span><span class="p">;</span>
+
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">pre_start</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">end_next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="c1">// 1. 找到第m个节点的前一个节点</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">pre_start</span> <span class="o">&amp;&amp;</span> <span class="n">m</span><span class="o">--</span><span class="p">){</span>
+        <span class="n">pre_start</span> <span class="o">=</span> <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 2. 找到第n个节点的后一个节点</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">end_next</span> <span class="o">&amp;&amp;</span> <span class="n">n</span><span class="o">--</span><span class="p">){</span>
+        <span class="n">end_next</span> <span class="o">=</span> <span class="n">end_next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">m</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="o">||</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="c1">// 3. 翻转m 到 n之间的链表</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">stmp</span> <span class="o">=</span> <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">start</span> <span class="o">=</span> <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">end</span> <span class="o">=</span> <span class="n">start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">start</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">end</span> <span class="o">!=</span> <span class="n">end_next</span><span class="p">){</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 4. 连接到原来的链表上</span>
+    <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+    <span class="n">stmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="3-k">3. <a href="http://lintcode.com/zh-cn/problem/reverse-nodes-in-k-group/">K组翻转链表</a><a class="headerlink" href="#3-k" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">reverseKGroup</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 每K个节点翻转一下链表</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="c1">// 增加一个头节点</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">g</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">g</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">g</span><span class="p">;</span>
+
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">pre_start</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">end_next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+        <span class="c1">// 1. 找到第K个节点的下一个节点</span>
+        <span class="kt">int</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">end_next</span> <span class="o">&amp;&amp;</span> <span class="n">cc</span><span class="o">--</span><span class="p">){</span>
+            <span class="n">end_next</span> <span class="o">=</span> <span class="n">end_next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">cc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> <span class="c1">// 不足K个节点的部分不翻转</span>
+
+        <span class="c1">// 2. 翻转K个节点</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">start</span> <span class="o">=</span> <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">stmp</span> <span class="o">=</span> <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">ListNode</span><span class="o">*</span> <span class="n">end</span> <span class="o">=</span> <span class="n">start</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">end</span> <span class="o">!=</span> <span class="n">end_next</span><span class="p">){</span>
+            <span class="n">ListNode</span><span class="o">*</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//3. 连接到原来的链表</span>
+        <span class="n">pre_start</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+        <span class="n">stmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">end_next</span><span class="p">;</span>
+
+        <span class="c1">//4. 维护pre_start, end_start在正确的位置上，执行下一次循环</span>
+        <span class="n">pre_start</span> <span class="o">=</span> <span class="n">end_next</span> <span class="o">=</span> <span class="n">stmp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="4-n">4. <a href="http://lintcode.com/zh-cn/problem/remove-nth-node-from-end-of-list/#">删除链表中倒数第n个节点</a><a class="headerlink" href="#4-n" title="Permanent link">&para;</a></h2>
+<p>使用两个指针，遍历一遍链表就能解决；</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm">*  删除倒数第K个节点，我们需要找到倒数第K+1个节点</span>
+<span class="cm">* 1. 设链表的长度是n, 1&lt;=k&lt;=n</span>
+<span class="cm">* 2. 用两个间隔是K的指针，当第二个指针指向链表的null元素的时候，第一个指针指向导数第K+1个节点</span>
+<span class="cm">* 3. 在链表的第一个节点的前面添加一个节点guard; first --&gt; guard</span>
+<span class="cm">* 4. second = guard-&gt;next; second向后移动K步，如果在K大于0的时候循环结束，表示没有导数第K个元素，返回原来的链表</span>
+<span class="cm">* 循环退出的时候，first 和second间隔K个节点，此时同时移动first second, second到达链表结尾的时候，first指向导数第K+1个节点，</span>
+<span class="cm">* 5. 删除节点： first-&gt;next = first-&gt;next-&gt;next;</span>
+<span class="cm">*/</span>
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">removeNthFromEnd</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">g</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">g</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">g</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">first</span> <span class="o">=</span> <span class="n">g</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">second</span> <span class="o">=</span> <span class="n">g</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">second</span> <span class="o">&amp;&amp;</span> <span class="n">n</span><span class="o">--</span><span class="p">){</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// n超过了链表的长度</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">second</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="5">5. <a href="http://lintcode.com/zh-cn/problem/linked-list-cycle/">判断链表是否有环</a><a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm">* 1. head=null 或者 head-&gt;next = null，肯定无环</span>
+<span class="cm">* 2. first = second = head;</span>
+<span class="cm">* 3. do{}while();  first == second时候循环结束，说明链表有环；</span>
+<span class="cm">* 4. 一旦找到环，把first = head, 然后一步一步的移动first second, 再次相遇的地方就是环的入口。</span>
+<span class="cm">*/</span>
+<span class="kt">bool</span> <span class="nf">hasCycle</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">second</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">do</span><span class="p">{</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">first</span> <span class="o">&amp;&amp;</span> <span class="n">second</span> <span class="o">&amp;&amp;</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">&amp;&amp;</span> <span class="n">second</span> <span class="o">!=</span> <span class="n">first</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">first</span> <span class="o">||</span> <span class="o">!</span><span class="n">second</span> <span class="o">||</span> <span class="o">!</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="c1">// 找到入口节点</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">first</span> <span class="o">!=</span> <span class="n">second</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="6">6. <a href="http://lintcode.com/zh-cn/problem/intersection-of-two-linked-lists/">判断链表是否相交</a><a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>两种思路： 一种先遍历一遍两个链表，得出每个链表的长度，将尾部对其，判断</p>
+<p>另外一种，将一个链表的尾部连接到其头结点，从另外一个链表的头节点开始遍历，转换成判断链表是否有环的问题。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span> <span class="nf">hasCycle</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span><span class="n">ListNode</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">enter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">||</span> <span class="o">!</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">second</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">do</span><span class="p">{</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">first</span> <span class="o">&amp;&amp;</span> <span class="n">second</span> <span class="o">&amp;&amp;</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">&amp;&amp;</span> <span class="n">first</span> <span class="o">!=</span> <span class="n">second</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">first</span> <span class="o">||</span> <span class="o">!</span><span class="n">second</span> <span class="o">||</span> <span class="o">!</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="c1">// 找到入口节点</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">first</span> <span class="o">!=</span> <span class="n">second</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">enter</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">getIntersectionNode</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">headA</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">headB</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">headA</span> <span class="o">||</span> <span class="o">!</span><span class="n">headB</span><span class="p">)</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">iterA</span> <span class="o">=</span> <span class="n">headA</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">iterA</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span><span class="n">nullptr</span><span class="p">){</span>
+        <span class="n">iterA</span> <span class="o">=</span> <span class="n">iterA</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">iterA</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">headA</span><span class="p">;</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">enter</span><span class="p">;</span>
+    <span class="n">hasCycle</span><span class="p">(</span><span class="n">headB</span><span class="p">,</span><span class="n">enter</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">enter</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="7-k">7. <a href="http://lintcode.com/zh-cn/problem/merge-k-sorted-lists/">合并K个排序的链表</a><a class="headerlink" href="#7-k" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>第一方法，用一个数组保存K个链表的头指针，每次都比较K个元素的大小，选出最小的元素，链接到新的链表的结尾，然后该链表向下一个节点移动一位。</p>
+</li>
+<li>
+<p>利用上面的思路，每次都要从K个元素中选择最小的元素，可以使用一个K个元素的最小堆实现，降低时间复杂度。</p>
+</li>
+<li>
+<p>利用归并的思想，两两合并；</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">// 第一种方法</span>
+
+<span class="c1">// 每次找出最小值的方式</span>
+ <span class="n">ListNode</span> <span class="o">*</span><span class="nf">mergeKLists</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">lists</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// write your code here</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">guard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+
+    <span class="c1">// current 指向K个链表的头指针</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">*&gt;</span> <span class="n">currents</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">link</span> <span class="p">:</span> <span class="n">lists</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">link</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span>
+            <span class="n">currents</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">link</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">currents</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="kt">int</span> <span class="n">minV</span> <span class="o">=</span> <span class="n">INT32_MAX</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">currents</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+            <span class="c1">// 去掉已经为空的链表</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">currents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span>
+                <span class="n">currents</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">currents</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">currents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">minV</span><span class="p">){</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="n">minV</span> <span class="o">=</span> <span class="n">currents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">currents</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+        <span class="n">guard</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">currents</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span>
+            <span class="n">currents</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">currents</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">currents</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">currents</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">index</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>第二种方法， 最小堆</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 第二种方法， 最小堆</span>
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">mergeKLists</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">lists</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">*</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">*&gt;</span><span class="p">,</span><span class="n">bigger</span><span class="o">&gt;</span> <span class="n">minHeap</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">lists</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">minHeap</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+            <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">){</span>
+                <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+            <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">){</span>
+                <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>第三种方法,归并排序的方式</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 第三种方法,归并排序的方式</span>
+<span class="c1">// 通过调用合并两个排序链表的方式实现</span>
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">mergeTwoLists</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// write your code here</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">guard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">l1</span> <span class="o">&amp;&amp;</span> <span class="n">l2</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+            <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
+            <span class="n">guard</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
+            <span class="n">guard</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l1</span><span class="p">){</span>
+        <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l2</span><span class="p">){</span>
+        <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">mergeKLists</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">lists</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">lists</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">mergeTwoLists</span><span class="p">(</span><span class="n">lists</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lists</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+    <span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">*&gt;</span> <span class="n">left</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">right</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">copy</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">lists</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">left</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+    <span class="n">copy</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">lists</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">right</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">mergeTwoLists</span><span class="p">(</span><span class="n">mergeKLists</span><span class="p">(</span><span class="n">left</span><span class="p">),</span><span class="n">mergeKLists</span><span class="p">(</span><span class="n">right</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>上面采用的是自顶向下的递归归并的方式，下面采用非递归的自底向上的方法来实现</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 简单的实现一个数据的归并求和</span>
+<span class="c1">// 自底向上归并</span>
+<span class="kt">int</span> <span class="nf">solve</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">){</span>
+    <span class="kt">size_t</span> <span class="n">end</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">end</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">throw</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">end</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">end</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">end</span><span class="p">;</span><span class="n">i</span><span class="o">+=</span><span class="mi">2</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">){</span>
+                <span class="n">v</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+                <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">v</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">mergeKLists</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ListNode</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">lists</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">lists</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">mergeTwoLists</span><span class="p">(</span><span class="n">lists</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lists</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+    <span class="kt">size_t</span> <span class="n">end</span> <span class="o">=</span> <span class="n">lists</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">end</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">end</span><span class="p">;</span><span class="n">i</span><span class="o">+=</span><span class="mi">2</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">){</span>
+                <span class="n">lists</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mergeTwoLists</span><span class="p">(</span><span class="n">lists</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">lists</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+                <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">lists</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">lists</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">lists</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="8">8. <a href="http://lintcode.com/zh-cn/problem/copy-list-with-random-pointer/">带随机指针链表的复制|复杂链表的复制</a><a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>使用O（1）的额外空间完成链表的复制，基本思路是把拷贝的新节点链接在原来节点的后面，设置完随机指针之后再断开与原来旧链表的连接。</p>
+<div class="highlight"><pre><span></span><code><span class="n">RandomListNode</span> <span class="o">*</span><span class="nf">copyRandomList</span><span class="p">(</span><span class="n">RandomListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// write your code here</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">RandomListNode</span><span class="o">*</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="c1">// 1. 复制每个节点连接在原来节点的后面</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="p">){</span>
+        <span class="n">RandomListNode</span><span class="o">*</span> <span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">RandomListNode</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">label</span><span class="p">);</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 2. 设置随机指针</span>
+    <span class="n">RandomListNode</span><span class="o">*</span> <span class="n">newHead</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">==</span><span class="n">nullptr</span> <span class="o">?</span> <span class="nl">nullptr</span> <span class="p">:</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">newHead</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="p">){</span>
+        <span class="n">RandomListNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">?</span> <span class="nl">nullptr</span> <span class="p">:</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 3. 断开和旧链表的连接</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">newHead</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">){</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">newHead</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="9">9. <a href="http://lintcode.com/zh-cn/problem/remove-linked-list-elements/">删除链表元素</a><a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>删除链表节点为某个值的所有元素。(某个值可能有多个，也可能全部都是)</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">removeElements</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1">// Write your code here</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">guard</span><span class="o">=</span><span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+       <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+       <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+       <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="p">){</span>
+           <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">val</span><span class="p">){</span>
+               <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+               <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+           <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+               <span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+               <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
+           <span class="p">}</span>
+
+       <span class="p">}</span>
+       <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+   <span class="p">}</span>
+</code></pre></div>
+
+<p>不使用哨兵的方法，在要求不使用额外空间的时候可以用这种方法。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">removeElements</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1">// Write your code here</span>
+       <span class="c1">// 删除链表中等于给定值val的所有节点</span>
+       <span class="k">while</span><span class="p">(</span><span class="n">head</span> <span class="o">&amp;&amp;</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">val</span><span class="p">){</span>
+           <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+       <span class="p">}</span>
+       <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 头结点已经不可能==val了，因为前面已经删除了</span>
+       <span class="k">while</span><span class="p">(</span><span class="n">c</span><span class="p">){</span>
+           <span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">val</span><span class="p">){</span>
+               <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+               <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+               <span class="n">c</span> <span class="o">=</span> <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+           <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+               <span class="n">pre</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+               <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+           <span class="p">}</span>
+       <span class="p">}</span>
+       <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="10-o1">10. <a href="http://lintcode.com/zh-cn/problem/delete-node-in-the-middle-of-singly-linked-list/">在O(1)时间复杂度删除链表节点</a><a class="headerlink" href="#10-o1" title="Permanent link">&para;</a></h2>
+<p>思路：给出要删除的节点，是不可能在O(1)的时间内删除该节点的，因为想要删除该节点，必须找到它前面的节点，这个操作只能从头遍历(在没有指向前面的指针的情况下)，复杂度不可能是O(1). 但是可以把要删除的节点后面的节点的值赋给要删除的节点，再删除要删除的节点后面的节点，这样'看起来'好像删除了当前的节点。实际上在计算机内存中真正的变化是要删除的节点的值变成了它后面节点的值.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">deleteNode</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// write your code here</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="11">11. <a href="http://lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-list/">删除排序链表中的重复元素</a><a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>给定一个排序链表，删除所有重复的元素每个重复元素只留下一个。</p>
+<p>遇到不同的元素的时候再删除。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">deleteDuplicates</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// write your code here</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+        <span class="c1">// 链表结尾有重复元素的情况</span>
+        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>一旦遇到相同的元素就删除。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">deleteDuplicates</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 给定一个排序链表，删除所有重复的元素每个元素只留下一个。</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">c</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+                <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="12-2">12. <a href="http://lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-list-ii/">删除排序链表中的重复元素2</a><a class="headerlink" href="#12-2" title="Permanent link">&para;</a></h2>
+<p>给定一个排序链表，删除所有重复的元素只留下原链表中没有重复的元素。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span> <span class="nf">deleteDuplicates</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1">//给定一个排序链表，删除所有重复的元素只留下原链表中没有重复的元素。</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">guard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+       <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+       <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">start</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+       <span class="n">ListNode</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+       <span class="k">while</span><span class="p">(</span><span class="n">end</span><span class="p">){</span>
+           <span class="k">while</span><span class="p">(</span><span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">start</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+               <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+           <span class="p">}</span>
+           <span class="k">if</span><span class="p">(</span><span class="n">start</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">end</span><span class="p">){</span>
+               <span class="n">pre</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+               <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+           <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+               <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+               <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+           <span class="p">}</span>
+       <span class="p">}</span>
+       <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>不使用哨兵节点的方案</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span> <span class="nf">deleteDuplicates</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//给定一个排序链表，删除所有重复的元素只留下原链表中没有重复的元素。</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">start</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">end</span><span class="p">){</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">start</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">==</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">start</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">end</span><span class="p">){</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">pre</span> <span class="o">==</span> <span class="n">start</span> <span class="o">&amp;&amp;</span> <span class="n">pre</span> <span class="o">==</span> <span class="n">head</span><span class="p">){</span>
+                <span class="n">head</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>    <span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="13-k">13. 删除单向链表中倒数第K个节点<a class="headerlink" href="#13-k" title="Permanent link">&para;</a></h2>
+<p>例如：<code>head--&gt;1--&gt;2--&gt;3--&gt;4--&gt;5--&gt;6</code>  K=2
+返回：<code>head--&gt;1--&gt;2--&gt;3--&gt;4--&gt;6</code></p>
+<p>思路一： 先遍历一遍链表，统计链表有多少个元素。然后就可以知道倒数第K个元素就是
+正数第n-k+1个元素，从head开始移动指针，移动n-k次就是要删除的节点。
+删除一个节点，只需要把原来指向这个元素的指针指向它后面的元素就可以了。所以我们要做的
+操作就是从head开始，移动n-k-1次，找到要删除的节点前面的节点a,然后执行a-&gt;next = a-&gt;next-&gt;next</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">removeNthFromEnd</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// write your code here</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="p">){</span>
+        <span class="n">len</span> <span class="o">++</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">len</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span>  <span class="p">;</span><span class="c1">// 正数第count个节点</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">count</span><span class="o">--</span><span class="p">){</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>思路二：使用两个间隔K个元素的指针遍历一遍链表，当前面的指针走到尾节点的时候，后面的节点指向的就是倒数第K个节点。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">removeNthFromEnd</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// write your code here</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">second</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">first</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">--</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 删除第一个节点</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span> <span class="c1">// 没有导数第n个节点</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">first</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="14">14. 查找链表的中间节点<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p>思路： 设置两个指针同时指向头部，一个指针每次移动两步，一个指针每次移动一步，这样在快的指针走到尽头的时候，慢的指针恰好走到了中部。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 找到链表的中间节点并返回</span>
+<span class="cm"> * @param head</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">ListNode</span><span class="o">*</span> <span class="nf">findMiddle</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">second</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">&amp;&amp;</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">first</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="15">15. 插入排序（使用单链表实现）<a class="headerlink" href="#15" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">insertionSortList</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 使用链表实现插入排序</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">guard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">INT32_MIN</span><span class="p">);</span>
+    <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">sorted</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">ends</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">unsorted</span> <span class="o">=</span> <span class="n">ends</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ends</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span> <span class="c1">// 链表断开</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">unsorted</span><span class="p">){</span>
+        <span class="c1">// 找到插入的位置</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">sorted</span> <span class="o">!=</span> <span class="n">ends</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">unsorted</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">sorted</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">unsorted</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">sorted</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+                <span class="c1">// 插入到iter1后面</span>
+                <span class="n">ListNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">unsorted</span><span class="p">;</span>
+                <span class="n">unsorted</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">sorted</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">sorted</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+                <span class="n">sorted</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">sorted</span> <span class="o">=</span> <span class="n">sorted</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">sorted</span> <span class="o">==</span> <span class="n">ends</span> <span class="o">&amp;&amp;</span> <span class="n">unsorted</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">ends</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">){</span>
+            <span class="n">ends</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">unsorted</span><span class="p">;</span>
+            <span class="n">unsorted</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">ends</span> <span class="o">=</span> <span class="n">ends</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">ends</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+            <span class="n">sorted</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="16">16. 快速排序(单链表实现)<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p>快速排序一般的思想是首尾两个指针相向运动，但是单链表没有向前的指针，这要求我们换一种思路。如何从前往后遍历找到支点的位置。假设支点的值是value. 我们需要遍历一遍链表，使得所有小于value的值都在前面，所有大于value的值都在后面，这个时候就找到的value应该在的位置。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 单链表实现快排</span>
+</code></pre></div>
+
+<h2 id="17">17. <a href="http://lintcode.com/zh-cn/problem/swap-two-nodes-in-linked-list/">交换链表当中两个节点</a><a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<p>给你一个链表以及两个权值v1和v2，交换链表中权值为v1和v2的这两个节点。保证链表中节点权值各不相同，如果没有找到对应节点，那么什么也不用做。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span><span class="o">*</span> <span class="nf">swapNodes</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Write your code here</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="c1">// add a guard</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">guard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+
+    <span class="c1">//search the value</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre_v1</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre_v2</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">pre_tmp</span><span class="o">=</span><span class="n">guard</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">tmp</span><span class="o">=</span><span class="n">pre_tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">val</span><span class="o">==</span><span class="n">v1</span><span class="p">){</span>
+            <span class="n">pre_v1</span> <span class="o">=</span> <span class="n">pre_tmp</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">val</span><span class="o">==</span><span class="n">v2</span><span class="p">){</span>
+            <span class="n">pre_v2</span> <span class="o">=</span> <span class="n">pre_tmp</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">pre_tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// not find v1 or v2</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pre_v1</span><span class="o">==</span><span class="n">nullptr</span> <span class="o">||</span> <span class="n">pre_v2</span><span class="o">==</span><span class="n">nullptr</span><span class="p">){</span>
+        <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// swap the two nodes</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">v1s</span> <span class="o">=</span> <span class="n">pre_v1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">v2s</span> <span class="o">=</span> <span class="n">pre_v2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">next_v1</span> <span class="o">=</span> <span class="n">v1s</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">next_v2</span> <span class="o">=</span> <span class="n">v2s</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">pre_v1</span> <span class="o">==</span> <span class="n">v2s</span><span class="p">){</span>
+        <span class="n">pre_v2</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">v1s</span><span class="p">;</span>
+        <span class="n">v1s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">v2s</span><span class="p">;</span>
+        <span class="n">v2s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next_v1</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pre_v2</span> <span class="o">==</span> <span class="n">v1s</span><span class="p">){</span>
+        <span class="n">pre_v1</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">v2s</span><span class="p">;</span>
+        <span class="n">v2s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">v1s</span><span class="p">;</span>
+        <span class="n">v1s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next_v2</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="n">v1s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next_v2</span><span class="p">;</span>
+        <span class="n">v2s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next_v1</span><span class="p">;</span>
+        <span class="n">pre_v1</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">v2s</span><span class="p">;</span>
+        <span class="n">pre_v2</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">v1s</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="18">18. <a href="http://lintcode.com/zh-cn/problem/swap-nodes-in-pairs/">两两交换链表中的节点</a><a class="headerlink" href="#18" title="Permanent link">&para;</a></h2>
+<p>给一个链表，两两交换其中的节点，然后返回交换后的链表。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span><span class="o">*</span> <span class="nf">swapPairs</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Write your code here</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">==</span><span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">guard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">pres1</span> <span class="o">=</span> <span class="n">guard</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">s1</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">s2</span> <span class="o">=</span> <span class="n">guard</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">s1</span><span class="o">!=</span><span class="n">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">s2</span><span class="o">!=</span><span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">pres1</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s2</span><span class="p">;</span>
+            <span class="n">s1</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">s2</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">s1</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">==</span><span class="n">nullptr</span> <span class="o">||</span> <span class="n">s1</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">==</span><span class="n">nullptr</span><span class="p">){</span>
+                <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">pres1</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+                <span class="n">s1</span> <span class="o">=</span> <span class="n">s1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">s2</span> <span class="o">=</span> <span class="n">s2</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<h2 id="19">19. <a href="http://lintcode.com/zh-cn/problem/rotate-list/">旋转链表</a><a class="headerlink" href="#19" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">rotateRight</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//给定一个链表，旋转链表，使得每个节点向右移动k个位置，其中k是一个非负数</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">){</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">%</span> <span class="n">len</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="o">%</span> <span class="n">len</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span> <span class="o">&amp;&amp;</span> <span class="n">index</span> <span class="o">--</span><span class="p">){</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">end</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="20">20. <a href="http://lintcode.com/zh-cn/problem/reorder-list/">首尾交错重排链表</a><a class="headerlink" href="#20" title="Permanent link">&para;</a></h2>
+<p>给定一个单链表L: L0→L1→…→Ln-1→Ln,重新排列后为：L0→Ln→L1→Ln-1→L2→Ln-2→…必须在不改变节点值的情况下进行原地操作。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 找到链表的中间节点并返回</span>
+<span class="cm"> * @param head</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">ListNode</span><span class="o">*</span> <span class="nf">findMiddle</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">first</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">second</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">&amp;&amp;</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">){</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">first</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 反转链表</span>
+<span class="cm"> * @param head</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">reverse</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// write your code here</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">==</span><span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span><span class="n">head</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">next_iter</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">next_iter</span><span class="p">){</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">next_iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">next_iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">iter</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">next_iter</span><span class="p">;</span>
+        <span class="n">next_iter</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">iter</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 交叉合并两个链表</span>
+<span class="cm"> * @param l1</span>
+<span class="cm"> * @param l2</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">ListNode</span> <span class="o">*</span><span class="nf">mergeTwoLists</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果其中一个链表为空，直接返回另外一个链表就是结果</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l1</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">l2</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l2</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">l1</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
+    <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">odd</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">l2</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">odd</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">l2</span><span class="p">){</span>
+                <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span><span class="p">;</span>
+                <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">odd</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">l1</span><span class="p">){</span>
+                <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span><span class="p">;</span>
+                <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+        <span class="n">odd</span> <span class="o">=</span> <span class="o">!</span><span class="n">odd</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ListNode</span><span class="o">*</span> <span class="nf">reorderList</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="c1">// 给定一个单链表L: L0→L1→…→Ln-1→Ln,重新排列后为：L0→Ln→L1→Ln-1→L2→Ln-2→…必须在不改变节点值的情况下进行原地操作</span>
+    <span class="c1">// 找到中间节点， 反转后半段，然后交叉拼接起来，可以确保不适用额外的空间</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">middle</span> <span class="o">=</span> <span class="n">findMiddle</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+    <span class="n">ListNode</span><span class="o">*</span> <span class="n">head2</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">middle</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>
+    <span class="n">middle</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">mergeTwoLists</span><span class="p">(</span><span class="n">head</span><span class="p">,</span><span class="n">head2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="21">21. <a href="http://lintcode.com/zh-cn/problem/palindrome-linked-list/">回文链表</a><a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>判断一个链表中的值是否是回文</p>
+<p>找到中间节点，把后面的链表反转，然后与前面的逐个节点比较，如果完全一样或者只有最后一个节点不一样，则是回文的。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span> <span class="nf">isPalindrome</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Write your code here</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">middle</span> <span class="o">=</span> <span class="n">findMiddle</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">head2</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">middle</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>
+    <span class="n">middle</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">iter1</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">iter2</span> <span class="o">=</span> <span class="n">head2</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">iter1</span> <span class="o">&amp;&amp;</span> <span class="n">iter2</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">iter1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">!=</span> <span class="n">iter2</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">iter1</span> <span class="o">=</span> <span class="n">iter1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">iter2</span> <span class="o">=</span> <span class="n">iter2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">iter1</span> <span class="o">&amp;&amp;</span> <span class="n">iter1</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">iter2</span> <span class="o">&amp;&amp;</span> <span class="n">iter2</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">iter1</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">iter2</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="22">22. <a href="http://lintcode.com/zh-cn/problem/add-two-numbers/">链表求和</a><a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<p>你有两个用链表代表的整数，其中每个节点包含一个数字。数字存储按照在原来整数中相反的顺序，使得第一个数字位于链表的开头。写出一个函数将两个整数相加，用链表形式返回和。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">addLists</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l1</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">l2</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l2</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">l1</span><span class="p">;</span>
+    <span class="c1">// 链表求和</span>
+    <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">ListNode</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="n">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">l2</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">carry</span> <span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="p">;</span>
+        <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">carry</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">10</span> <span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">l1</span><span class="p">){</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">carry</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">carry</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+    <span class="p">}</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">l2</span><span class="p">){</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">carry</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">l2</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="n">carry</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">carry</span><span class="p">){</span>
+        <span class="n">ListNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">carry</span><span class="p">);</span>
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="23-ii">23. <a href="http://lintcode.com/zh-cn/problem/add-two-numbers-ii/#">链表求和 II</a><a class="headerlink" href="#23-ii" title="Permanent link">&para;</a></h2>
+<p>假定用一个链表表示两个数，其中每个节点仅包含一个数字。假设这两个数的数字顺序排列，请设计一种方法将两个数相加，并将其结果表现为链表的形式。</p>
+<p>先翻转链表，求和，在翻转回去。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ListNode</span> <span class="o">*</span><span class="nf">addLists2</span><span class="p">(</span><span class="n">ListNode</span> <span class="o">*</span><span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span> <span class="o">*</span><span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="n">addLists</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">l1</span><span class="p">),</span><span class="n">reverse</span><span class="p">(</span><span class="n">l2</span><span class="p">)));</span>
+<span class="p">}</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../leetcode/991/readme/" title="[991. 坏了的计算器](https://leetcode-cn.com/problems/broken-calculator/)" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                [991. 坏了的计算器](https://leetcode-cn.com/problems/broken-calculator/)
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../stack/" title="栈的相关题目" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                栈的相关题目
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+	
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+	<script>
+		(function() {
+			var table_element = $('div.table_filter_start').nextUntil('div.table_filter_end', 'table');
+			table_element.attr('id', 'table_filter');
+			table_element.attr('data-filter-control', 'false'); 
+			table_element.attr('data-search', 'true');
+			table_element.addClass('table-sm');
+			table_element.addClass('table-striped');
+			
+			var th_element = $('#table_filter thead th');
+			var count = th_element.length;
+			for (var i = 0; i < count; i++) {
+				var th = $("#table_filter thead th:eq(" + i + ")");
+				th.attr('data-field','data' + i);
+			}
+			th_element.attr('data-filter-control', 'input');
+			th_element.attr('data-sortable', 'true');
+		  })();
+	</script>
+	<script>
+	  $(function() {
+		$('#table_filter').bootstrapTable()
+	  })
+	</script>
+
+  </body>
+</html>

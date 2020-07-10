@@ -1,0 +1,2085 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>Python 语言基础知识 - FEIFEI</title>
+      
+    
+    
+	
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    
+	
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="FEIFEI" class="md-header-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            FEIFEI
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Python 语言基础知识
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FEIFEI" class="md-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    FEIFEI
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../readme/" title="题目汇总" class="md-nav__link">
+      题目汇总
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      工具
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="工具" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Linux 常用命令" class="md-nav__link">
+      Linux 常用命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/SourceInsight%E5%AE%8F/" title="SouceInsight宏的使用" class="md-nav__link">
+      SouceInsight宏的使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/gdb%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" title="GDB调试技巧" class="md-nav__link">
+      GDB调试技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/mkdocs/" title="mkdocs" class="md-nav__link">
+      mkdocs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" title="VS Code 配置多种编译调试环境" class="md-nav__link">
+      VS Code 配置多种编译调试环境
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      数据结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数据结构" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        数据结构
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88/" title="栈" class="md-nav__link">
+      栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%98%9F%E5%88%97/" title="队列" class="md-nav__link">
+      队列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" title="链表" class="md-nav__link">
+      链表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表" class="md-nav__link">
+      哈希表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树" class="md-nav__link">
+      二叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%9A%E5%8F%89%E6%A0%91/" title="多叉树" class="md-nav__link">
+      多叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      图
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="图" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        图
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E5%9B%BE%28%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%29/" title="图(基础知识)" class="md-nav__link">
+      图(基础知识)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树" class="md-nav__link">
+      最小生成树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" title="最短路径问题" class="md-nav__link">
+      最短路径问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/%E7%BD%91%E7%BB%9C%E6%B5%81/" title="网络流" class="md-nav__link">
+      网络流
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F/" title="排序" class="md-nav__link">
+      排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%8D%E8%BF%90%E7%AE%97/" title="位运算" class="md-nav__link">
+      位运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E6%A0%91/" title="字典树(Trie树)" class="md-nav__link">
+      字典树(Trie树)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/" title="堆" class="md-nav__link">
+      堆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集" class="md-nav__link">
+      并查集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" title="树状数组" class="md-nav__link">
+      树状数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树[区间树]" class="md-nav__link">
+      线段树[区间树]
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      算法
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="算法" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/" title="N皇后问题" class="md-nav__link">
+      N皇后问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95/" title="分治法" class="md-nav__link">
+      分治法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划" class="md-nav__link">
+      动态规划
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="博弈论" class="md-nav__link">
+      博弈论
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9B%E7%AD%89%E5%88%86%E6%95%B0%E7%BB%84/" title="四等分数组" class="md-nav__link">
+      四等分数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%96%87/" title="回文算法和题目" class="md-nav__link">
+      回文算法和题目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%A4%A7%E6%95%B0%E6%8D%AE/" title="算法专题_大数据和空间限制" class="md-nav__link">
+      算法专题_大数据和空间限制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%BE%AA%E7%8E%AF%E5%8F%B3%E7%A7%BB/" title="循环右移" class="md-nav__link">
+      循环右移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" title="排列组合" class="md-nav__link">
+      排列组合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95/" title="摩尔投票法" class="md-nav__link">
+      摩尔投票法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%A8%A1%E8%BF%90%E7%AE%97/" title="算法专题_模运算" class="md-nav__link">
+      算法专题_模运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E7%B4%A0%E6%95%B0%E9%97%AE%E9%A2%98/" title="算法专题_素数问题" class="md-nav__link">
+      算法专题_素数问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%8A%B1%E5%BC%8F%E9%81%8D%E5%8E%86/" title="矩阵的遍历" class="md-nav__link">
+      矩阵的遍历
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="算法专题_计算几何" class="md-nav__link">
+      算法专题_计算几何
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E6%B3%95/" title="贪心算法" class="md-nav__link">
+      贪心算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E6%90%9C%E7%B4%A2/" title="递归搜索" class="md-nav__link">
+      递归搜索
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-17" type="checkbox" id="nav-4-17">
+    
+    <label class="md-nav__link" for="nav-4-17">
+      字符串
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="字符串" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-17">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Aho-Corasick%E7%AE%97%E6%B3%95/" title="Aho-Corasick 算法" class="md-nav__link">
+      Aho-Corasick 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Boyer%20Moore%E7%AE%97%E6%B3%95/" title="Boyer Moore" class="md-nav__link">
+      Boyer Moore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/KMP%E7%AE%97%E6%B3%95/" title="KMP 算法" class="md-nav__link">
+      KMP 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Rabin-Karp%E7%AE%97%E6%B3%95/" title="Rabin-Karp 算法" class="md-nav__link">
+      Rabin-Karp 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Z%E7%AE%97%E6%B3%95/" title="Z 算法" class="md-nav__link">
+      Z 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%B4%E7%B4%A0%E7%AE%97%E6%B3%95/" title="朴素算法" class="md-nav__link">
+      朴素算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="有限自动机" class="md-nav__link">
+      有限自动机
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-18" type="checkbox" id="nav-4-18">
+    
+    <label class="md-nav__link" for="nav-4-18">
+      排序
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="排序" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-18">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        排序
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" title="希尔排序" class="md-nav__link">
+      希尔排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序" class="md-nav__link">
+      归并排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" title="排序算法比较" class="md-nav__link">
+      排序算法比较
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%A1%B6%E6%8E%92%E5%BA%8F/" title="桶排序" class="md-nav__link">
+      桶排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      编程语言
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        编程语言
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c%2B%2B/" title="C++ 语言基础知识" class="md-nav__link">
+      C++ 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c/" title="C 语言基础知识" class="md-nav__link">
+      C 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../leetcode/" title="leetcode 常用函数" class="md-nav__link">
+      leetcode 常用函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Python 语言基础知识
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Python 语言基础知识" class="md-nav__link md-nav__link--active">
+      Python 语言基础知识
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 基础知识
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-import" class="md-nav__link">
+    1.1 import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-string" class="md-nav__link">
+    1.2 string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-list" class="md-nav__link">
+    1.3 list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-dict" class="md-nav__link">
+    1.4 dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-set" class="md-nav__link">
+    1.5 set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 除法运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 路径操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    1.8 中文编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    1.9 输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-shell" class="md-nav__link">
+    1.10 调用系统shell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 时间和日期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-json" class="md-nav__link">
+    4. JSON
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sqlite" class="md-nav__link">
+    5. SQLITE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 数据结构
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 堆
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 堆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-heapq" class="md-nav__link">
+    6.1.1 heapq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-queue" class="md-nav__link">
+    6.1.2 queue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 常用库
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 常用库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-diff" class="md-nav__link">
+    7.1 diff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 序列化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 输入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-python" class="md-nav__link">
+    8. Python 库
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Python 库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-numpy" class="md-nav__link">
+    8.1 numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-pandas" class="md-nav__link">
+    8.2 pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-graphviz" class="md-nav__link">
+    8.3 graphviz
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pyton" class="md-nav__link">
+    9. 发布Pyton库
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 基础知识
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-import" class="md-nav__link">
+    1.1 import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-string" class="md-nav__link">
+    1.2 string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-list" class="md-nav__link">
+    1.3 list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-dict" class="md-nav__link">
+    1.4 dict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-set" class="md-nav__link">
+    1.5 set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 除法运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 路径操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    1.8 中文编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    1.9 输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-shell" class="md-nav__link">
+    1.10 调用系统shell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 时间和日期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-json" class="md-nav__link">
+    4. JSON
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sqlite" class="md-nav__link">
+    5. SQLITE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 数据结构
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 堆
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 堆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-heapq" class="md-nav__link">
+    6.1.1 heapq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-queue" class="md-nav__link">
+    6.1.2 queue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 常用库
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 常用库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-diff" class="md-nav__link">
+    7.1 diff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 序列化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 输入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-python" class="md-nav__link">
+    8. Python 库
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Python 库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-numpy" class="md-nav__link">
+    8.1 numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-pandas" class="md-nav__link">
+    8.2 pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-graphviz" class="md-nav__link">
+    8.3 graphviz
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pyton" class="md-nav__link">
+    9. 发布Pyton库
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FF1204/leetcode/edit/master/docs/编程语言/python.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="python">Python 语言基础知识<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<p>记录用 python 刷 leetcode 必须了解的特性，主要是数据结构的表示。</p>
+<h2 id="1">1. 基础知识<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-import">1.1 import<a class="headerlink" href="#11-import" title="Permanent link">&para;</a></h3>
+<p>记录各种需要包含的库</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 后置返回类型 List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</code></pre></div>
+
+<h3 id="12-string">1.2 string<a class="headerlink" href="#12-string" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">regex</span> <span class="k">as</span> <span class="nn">re</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span>
+
+<span class="n">string</span><span class="o">.</span><span class="n">ltrsip</span><span class="p">()</span>
+<span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># 去掉行首， 行尾， 行首和行尾的空格，可传入其他字符</span>
+
+<span class="c1"># 查找替换</span>
+
+<span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;substring&quot;</span><span class="p">)</span> <span class="c1"># 返回第一次出现的位置 或者 -1</span>
+<span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test test test&quot;</span><span class="p">)]</span> <span class="c1"># 返回test所有出现的位置</span>
+<span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s2">&quot;(?=tt)&quot;</span><span class="p">,</span> <span class="s2">&quot;tttttt&quot;</span><span class="p">)]</span> <span class="c1"># 返回所有出现的位置，重叠匹配</span>
+<span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;substring&quot;</span><span class="p">)</span> <span class="c1"># 出现的次数</span>
+<span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;astring&quot;</span><span class="p">,</span> <span class="s2">&quot;bstring&quot;</span><span class="p">)</span> <span class="c1"># a 替换成 b</span>
+<span class="n">string</span><span class="p">[:</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">new_string</span> <span class="o">+</span> <span class="n">string</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span> <span class="c1"># [start, end]之间的字符串替换成new_string</span>
+
+<span class="c1"># 分割拼接</span>
+<span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;seperator&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="c1"># 按照seperator分割string, 最多分割count次</span>
+<span class="s2">&quot;seperator&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="c1"># 使用seperator拼接list中的每个str</span>
+
+<span class="c1"># 大写小写</span>
+<span class="n">string</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<span class="n">string</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
+<span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">stirng</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="c1"># 首字母大写</span>
+
+<span class="c1"># 输出拼接</span>
+<span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">)</span>
+<span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">,</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="13-list">1.3 list<a class="headerlink" href="#13-list" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># create</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+<span class="n">list3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">list4</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span><span class="n">m</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="c1"># n行m列</span>
+
+<span class="c1"># 插入删除</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">list1</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># 删除a中在b中出现过的值</span>
+
+<span class="c1"># 遍历</span>
+<span class="k">for</span> <span class="n">elemnt</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span> <span class="c1"># 倒序输出</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+<span class="c1"># 以上遍历都不能修改值，如果需要修改，可以用下面的方法</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+
+<h3 id="14-dict">1.4 dict<a class="headerlink" href="#14-dict" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span><span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span><span class="n">value2</span><span class="p">}</span>
+
+<span class="c1"># 增删改查</span>
+<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+    <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+    <span class="k">del</span> <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">dic</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default_value</span><span class="p">)</span>
+
+<span class="c1"># 遍历</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">iterms</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># 有序字典</span>
+<span class="kn">from</span> <span class="nn">collection</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">odic</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+<span class="n">odic</span><span class="p">[</span><span class="n">key1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">odic</span><span class="p">[</span><span class="n">key2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">odic</span><span class="p">[</span><span class="n">key3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">first_element</span> <span class="o">=</span> <span class="n">odic</span><span class="o">.</span><span class="n">popitem</span><span class="p">(</span><span class="n">last</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># 得到key1</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">odic</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># 根据索引获取字典中的元素</span>
+</code></pre></div>
+
+<h3 id="15-set">1.5 set<a class="headerlink" href="#15-set" title="Permanent link">&para;</a></h3>
+<p>内部使用哈希表实现</p>
+<div class="highlight"><pre><span></span><code><span class="n">set1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="n">set1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+<span class="n">set3</span> <span class="o">=</span> <span class="n">set1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># set1 + set2</span>
+<span class="n">set3</span> <span class="o">=</span> <span class="n">set1</span><span class="o">.</span><span class="n">intersecton</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># set1 &amp; set2</span>
+<span class="n">set3</span> <span class="o">=</span> <span class="n">set1</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># set1 - set2</span>
+
+<span class="n">set1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">set1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="c1"># 固定大小的set</span>
+<span class="n">fix_set</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+
+<h3 id="16">1.6 除法运算<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># 实现与C语言一致的整数除法</span>
+</code></pre></div>
+
+<h3 id="17">1.7 路径操作<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 是否是文件</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 是否是目录</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 返回文件名</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 返回文件所在文件夹</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="c1"># 返回当前文件绝对路径</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 路径是否存在</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">dirname</span><span class="p">)</span> <span class="c1"># 拼接路径</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splittext</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 分割成路径 + 文件扩展名</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 列出路径下文件和文件夹</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 改变当前工作目录位path</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 新建路径，如果已经存在报错</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 删除文件，path是文件夹会报错</span>
+<span class="n">os</span><span class="o">.</span><span class="n">removedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 递归删除空目录，如果任意目录非空会报错</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># 删除path目录，如果path非空会报错</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">olename</span><span class="p">,</span> <span class="n">newname</span><span class="p">)</span> <span class="c1"># 重命名文件</span>
+
+<span class="c1"># 遍历文件夹下所有文件进入子文件夹</span>
+<span class="c1"># curdir:当前文件夹 dirs:当前文件夹下所有文件夹， files:当前文件夹下所有文件</span>
+<span class="c1"># True: 从顶层开始输出 False: 从底层开始输出</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">curdir</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="n">file_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">curdir</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+
+<span class="c1"># 获得最新生成的文件</span>
+<span class="n">lists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root_path</span><span class="p">)</span>
+<span class="n">lists</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">fn</span><span class="p">:</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">root_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">fn</span><span class="p">))</span>
+<span class="c1"># lists[-1] 就是最新的文件</span>
+
+<span class="c1"># 复制文件夹 src_path 复制到 dst_path</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exist</span><span class="p">(</span><span class="n">dst_path</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">dst_path</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dst_path</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">src_path</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="18">1.8 中文编码<a class="headerlink" href="#18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># utf8 --&gt; gb2312</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;gb2312&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">unicode</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;gb2312&quot;</span><span class="p">)</span>
+<span class="sa">u</span><span class="s2">&quot;中文&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;gb2312&quot;</span><span class="p">)</span> <span class="c1"># 转换编码</span>
+</code></pre></div>
+
+<h3 id="19">1.9 输出<a class="headerlink" href="#19" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># print不带换行</span>
+<span class="nb">print</span><span class="p">(),</span>
+
+<span class="c1"># 显示二进制</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mb">0b1011</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+<span class="c1"># 带颜色的打印</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;35m This color is pick.</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="110-shell">1.10 调用系统shell<a class="headerlink" href="#110-shell" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="c1"># ret &gt;&gt; 8 == 0 说明执行成功， 不会再标准输出打印内容</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="c1"># 命令输出会返回到output和标准输出中</span>
+
+<span class="c1"># 屏蔽执行的命令再标准输出中的输出</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="n">null_dev</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">devnull</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">null_dev</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">null_dev</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># 命令未执行完成</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span> <span class="c1"># 命令执行完</span>
+</code></pre></div>
+
+<h2 id="2">2. 正则表达式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">regex_pattern</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">)</span>
+
+<span class="n">matchObj</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="c1"># 从string第一个字符开始匹配，如果第一个字符就不匹配，返回None</span>
+<span class="n">matchObj2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="c1"># 从string中查找第一个匹配的模式，匹配到不继续向下查找</span>
+<span class="n">matchOnj3</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">endpos</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># 从string的pos开始到endpos结束，查找匹配的模式一次</span>
+<span class="n">lists</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="c1"># 从string中查找匹配的模式，返回所有匹配的选项为一个list</span>
+<span class="n">new_string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">replace_pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="c1"># 正则查找替换，返回替换后的新串</span>
+<span class="p">(</span><span class="n">new_stirng</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">replace_pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="c1"># 多返回一个替换次数</span>
+
+<span class="n">matchObj</span> <span class="o">==</span> <span class="kc">None</span> <span class="c1"># 未匹配到</span>
+<span class="n">matchObj</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1">#匹配到的内容, 默认是0，整个正则表达式匹配到的内容，如果大于0，就是正则表达式中n组匹配到的内容</span>
+<span class="n">matchObj</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">matchObj</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 第n组匹配的开始和结束索引</span>
+
+<span class="c1">## 正则语法</span>
+<span class="p">(</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 分组且捕获， 使用`\n`引用</span>
+<span class="p">(</span><span class="err">?</span><span class="p">:</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 分组不捕获</span>
+<span class="p">(</span><span class="err">?</span><span class="n">P</span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 分组捕获并命名，使用`\g&lt;name&gt;` 引用</span>
+<span class="p">(</span><span class="err">?</span><span class="o">=</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 匹配后面满足pattern模式的，但是不消费(匹配到的内容里面没有pattern匹配到的部分)</span>
+<span class="p">(</span><span class="err">?!</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 匹配后面不满足pattern模式的，不消费</span>
+<span class="p">(</span><span class="err">?</span><span class="o">&lt;=</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 匹配前面满足pattern模式的，不消费</span>
+<span class="p">(</span><span class="err">?</span><span class="o">&lt;</span><span class="err">!</span><span class="n">pattern</span><span class="p">)</span> <span class="c1"># 匹配前面不满足pattern模式的，不消费</span>
+</code></pre></div>
+
+<h2 id="3">3. 时间和日期<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="c1"># 当前时间</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># end - start 是经过的时间</span>
+</code></pre></div>
+
+<h2 id="4-json">4. JSON<a class="headerlink" href="#4-json" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">Obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_text</span><span class="p">,</span> <span class="n">object_paris_hook</span><span class="o">=</span><span class="n">OrderDict</span><span class="p">)</span> <span class="c1"># 文本转成结构</span>
+<span class="n">json_text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">Obj</span><span class="p">)</span>  <span class="c1"># 结构转换成文本</span>
+</code></pre></div>
+
+<h2 id="5-sqlite">5. SQLITE<a class="headerlink" href="#5-sqlite" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">form</span> <span class="n">sqlite3</span> <span class="kn">import</span> <span class="nn">Error</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">db_file</span><span class="p">)</span> <span class="c1"># 从DB文件打开数据库</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">current</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from table_name&quot;</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>  <span class="c1"># 获得执行SQL语句的结果</span>
+</code></pre></div>
+
+<h2 id="6">6. 数据结构<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 堆<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<h4 id="611-heapq">6.1.1 heapq<a class="headerlink" href="#611-heapq" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="n">heap</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># 创建堆</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
+<span class="n">top</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">heap</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">)</span> <span class="c1"># 返回前K大</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">heap</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">)</span> <span class="c1"># 返回前K小</span>
+</code></pre></div>
+
+<h4 id="612-queue">6.1.2 queue<a class="headerlink" href="#612-queue" title="Permanent link">&para;</a></h4>
+<p>引入包： <code>from queue import PriorityQueue</code></p>
+<p>定义：<code>minHeap = PriorityQueue()  # 默认建立小顶堆</code></p>
+<p>判空: <code>minHeap.empty()</code></p>
+<p>添加元素：<code>minHeap.put((key,value))</code>
+不能传入自定义的比较函数，但是可以传入元组，根据key的值建立小顶堆</p>
+<p>堆顶元素：<code>minHeap.get()</code> 取得并删除，与C++中的top()不同</p>
+<p><strong>注意</strong>：传入元组的时候如果key相同, 会进一步比较value, 如果value是自定义类型而且没有定义比较函数，会报错，这里要特别注意。</p>
+<p>大部分使用情况，可以通过传入元组<code>(key, data)</code>控制堆的排序方式， 如果不能满足要求，可以在自己定义的类型上定义比较函数。</p>
+<h2 id="7">7. 常用库<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71-diff">7.1 diff<a class="headerlink" href="#71-diff" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
+<span class="c1"># 获取string1, string2的相似度，1说明完全相同</span>
+<span class="n">deltas</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">)</span><span class="o">.</span><span class="n">quick_ratio</span><span class="p">()</span>
+
+<span class="c1"># 比较目录和文件</span>
+<span class="kn">import</span> <span class="nn">filecmp</span>
+</code></pre></div>
+
+<h3 id="72">7.2 序列化<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">Obj</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span> <span class="c1"># 结构存入文件</span>
+<span class="n">Obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="c1"># 从文件恢复结构</span>
+</code></pre></div>
+
+<h3 id="73">7.3 输入<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 处理输入选项</span>
+<span class="kn">import</span> <span class="nn">getopt</span>
+
+<span class="c1"># cli</span>
+<span class="kn">import</span> <span class="nn">click</span>
+</code></pre></div>
+
+<h2 id="8-python">8. Python 库<a class="headerlink" href="#8-python" title="Permanent link">&para;</a></h2>
+<h3 id="81-numpy">8.1 numpy<a class="headerlink" href="#81-numpy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span> <span class="c1"># n 行 m 列 k 层</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n</span> <span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span> <span class="c1"># 不初始化，使用内存原来的值</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">arrange</span><span class="p">([</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">])</span> <span class="c1"># 创建范围[start, end], 步长是step的一维数组</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linespace</span><span class="p">([</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">count</span><span class="p">])</span> <span class="c1"># 创建范围从[start, end], 总数量为count的一维数组</span>
+</code></pre></div>
+
+<h3 id="82-pandas">8.2 pandas<a class="headerlink" href="#82-pandas" title="Permanent link">&para;</a></h3>
+<p>可以理解为电子表格, 提供了类似SQL语句的强大操作能力。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1">#Series 一维数据</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span> <span class="c1"># 创建一维带名字的数组 [5,5,5] 列名称为 a, b, c</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span> <span class="c1">#创建一维带名字的数组 [1, 2, 3] 列名称为 a, b, c</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">})</span> <span class="c1"># key 作为列名称， 值作为列的值</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[])</span> <span class="c1"># key 如果在index中，加入，如果不在，加入设置值为Nan</span>
+
+<span class="c1"># DataFrame 二位数据</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span> <span class="c1"># 空</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[])</span> <span class="c1"># 从CSV文件创建， names为每一列的名称</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[])</span> <span class="c1"># data是二维数据， index为行命名， columns为列命名</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;col_name&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;col1_name&#39;</span><span class="p">,</span> <span class="s1">&#39;col2_name&#39;</span><span class="p">]]</span> <span class="c1"># 选择某些列</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;row_name&#39;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_index</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">row_begin_index</span> <span class="p">:</span> <span class="n">row_end_index</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">bool_vector</span><span class="p">]</span> <span class="c1"># 选择某些列</span>
+
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;row_name&#39;</span><span class="p">],</span> <span class="k">del</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;row_name&#39;</span><span class="p">]</span> <span class="c1"># 删除某些行， 删除某些列</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;col_name&#39;</span><span class="p">)</span> <span class="c1"># 按照列 col_name 分组</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;col_name&#39;</span><span class="p">)</span> <span class="c1"># 按照某一列排序</span>
+
+<span class="n">rows_unique</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col_name&#39;</span><span class="p">])</span> <span class="c1"># 获得某列的所有可能取值</span>
+<span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="c1"># 过滤出列值为value的所有行</span>
+
+<span class="c1"># 遍历每一行</span>
+<span class="k">for</span> <span class="n">row_num</span><span class="p">,</span> <span class="n">row_content</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row_num</span><span class="p">,</span> <span class="n">row_content</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="83-graphviz">8.3 graphviz<a class="headerlink" href="#83-graphviz" title="Permanent link">&para;</a></h3>
+<p>一个用来绘制 .dot 格式文件的Python包。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pip install graphviz</span>
+<span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">Digraph</span>
+
+<span class="c1"># 支持的输出格式 pdf, svg, png</span>
+<span class="n">dot</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s2">&quot;desciption&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span> <span class="c1"># 为node设置形状</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;10,10&#39;</span><span class="p">)</span> <span class="c1"># 设置图形布局为从左到右，10X10</span>
+
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">)</span> <span class="c1"># 设置节点名称</span>
+
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;name2&#39;</span><span class="p">)</span> <span class="c1"># 设置边</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">source</span><span class="p">)</span> <span class="c1"># 输出生成的.dot格式文件</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">view</span><span class="p">()</span> <span class="c1"># 查看生成的图片</span>
+</code></pre></div>
+
+<h2 id="9-pyton">9. 发布Pyton库<a class="headerlink" href="#9-pyton" title="Permanent link">&para;</a></h2>
+<p>Pypi 是一个发布的平台， 发布自己写的Python库之后，可以直接使用pip install name 安装，还可以在pypi的网站上找到自己的库的说明。</p>
+<ol>
+<li>注册账号并登陆</li>
+</ol>
+<p><a href="https://pypi.org">https://pypi.org</a></p>
+<ol>
+<li>准备文件</li>
+</ol>
+<p>去任意一个已经发布的包的 github 包主页上， 把对应的文件拷贝下来修改成自己的内容。</p>
+<p>setup.py， README.md， LICENSE 三者是必须的。</p>
+<ol>
+<li>
+<p>打包
+在 setup.py 同级下执行 <code>python setup.py bdist_wheel --universal</code></p>
+</li>
+<li>
+<p>上传</p>
+</li>
+</ol>
+<p><code>twine upload dist/*</code>, 输入用户名和密码之后上传成功。
+可以打开给出的页面看看效果。</p>
+<p><a href="https://pypi.org/project/mkdocs-render-otherfile-plugin/">https://pypi.org/project/mkdocs-render-otherfile-plugin/</a></p>
+<ol>
+<li>安装验证</li>
+</ol>
+<p>pip install package-name</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../leetcode/" title="leetcode 常用函数" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                leetcode 常用函数
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+	
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+	<script>
+		(function() {
+			var table_element = $('div.table_filter_start').nextUntil('div.table_filter_end', 'table');
+			table_element.attr('id', 'table_filter');
+			table_element.attr('data-filter-control', 'false'); 
+			table_element.attr('data-search', 'true');
+			table_element.addClass('table-sm');
+			table_element.addClass('table-striped');
+			
+			var th_element = $('#table_filter thead th');
+			var count = th_element.length;
+			for (var i = 0; i < count; i++) {
+				var th = $("#table_filter thead th:eq(" + i + ")");
+				th.attr('data-field','data' + i);
+			}
+			th_element.attr('data-filter-control', 'input');
+			th_element.attr('data-sortable', 'true');
+		  })();
+	</script>
+	<script>
+	  $(function() {
+		$('#table_filter').bootstrapTable()
+	  })
+	</script>
+
+  </body>
+</html>

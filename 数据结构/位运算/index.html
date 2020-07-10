@@ -1,0 +1,1954 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>位运算 - FEIFEI</title>
+      
+    
+    
+	
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    
+	
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="FEIFEI" class="md-header-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            FEIFEI
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              位运算
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FEIFEI" class="md-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    FEIFEI
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../readme/" title="题目汇总" class="md-nav__link">
+      题目汇总
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      工具
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="工具" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Linux 常用命令" class="md-nav__link">
+      Linux 常用命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/SourceInsight%E5%AE%8F/" title="SouceInsight宏的使用" class="md-nav__link">
+      SouceInsight宏的使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/gdb%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" title="GDB调试技巧" class="md-nav__link">
+      GDB调试技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/mkdocs/" title="mkdocs" class="md-nav__link">
+      mkdocs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" title="VS Code 配置多种编译调试环境" class="md-nav__link">
+      VS Code 配置多种编译调试环境
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      数据结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数据结构" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        数据结构
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%88/" title="栈" class="md-nav__link">
+      栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E9%98%9F%E5%88%97/" title="队列" class="md-nav__link">
+      队列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E9%93%BE%E8%A1%A8/" title="链表" class="md-nav__link">
+      链表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表" class="md-nav__link">
+      哈希表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树" class="md-nav__link">
+      二叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%A4%9A%E5%8F%89%E6%A0%91/" title="多叉树" class="md-nav__link">
+      多叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      图
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="图" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        图
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E5%9B%BE%28%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%29/" title="图(基础知识)" class="md-nav__link">
+      图(基础知识)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树" class="md-nav__link">
+      最小生成树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" title="最短路径问题" class="md-nav__link">
+      最短路径问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E7%BD%91%E7%BB%9C%E6%B5%81/" title="网络流" class="md-nav__link">
+      网络流
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%8E%92%E5%BA%8F/" title="排序" class="md-nav__link">
+      排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        位运算
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="位运算" class="md-nav__link md-nav__link--active">
+      位运算
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 基础知识
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 与(&amp;)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 或(|)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 非(~)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 异或(^)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 除法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 相关的应用
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 相关的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 交换两个整数(不适用额外的空间)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 不用比较找出两个数中较大的数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 不使用任何算术运算只使用位运算实现加减乘除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-1" class="md-nav__link">
+    2.4 整数的二进制表达中有多少个1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 找出一个只出现一次的数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 找出两个只出现一次的数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 找出三个只出现一次的数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-k" class="md-nav__link">
+    2.8 在其他数字都出现K次的数组中找到只出现一次的数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-n" class="md-nav__link">
+    2.9 快速的求一个整数的N次方
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%89%8D%E7%BC%80%E6%A0%91/" title="字典树(Trie树)" class="md-nav__link">
+      字典树(Trie树)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%A0%86/" title="堆" class="md-nav__link">
+      堆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集" class="md-nav__link">
+      并查集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" title="树状数组" class="md-nav__link">
+      树状数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树[区间树]" class="md-nav__link">
+      线段树[区间树]
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      算法
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="算法" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/" title="N皇后问题" class="md-nav__link">
+      N皇后问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95/" title="分治法" class="md-nav__link">
+      分治法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划" class="md-nav__link">
+      动态规划
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="博弈论" class="md-nav__link">
+      博弈论
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9B%E7%AD%89%E5%88%86%E6%95%B0%E7%BB%84/" title="四等分数组" class="md-nav__link">
+      四等分数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%96%87/" title="回文算法和题目" class="md-nav__link">
+      回文算法和题目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%A4%A7%E6%95%B0%E6%8D%AE/" title="算法专题_大数据和空间限制" class="md-nav__link">
+      算法专题_大数据和空间限制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%BE%AA%E7%8E%AF%E5%8F%B3%E7%A7%BB/" title="循环右移" class="md-nav__link">
+      循环右移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" title="排列组合" class="md-nav__link">
+      排列组合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95/" title="摩尔投票法" class="md-nav__link">
+      摩尔投票法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%A8%A1%E8%BF%90%E7%AE%97/" title="算法专题_模运算" class="md-nav__link">
+      算法专题_模运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E7%B4%A0%E6%95%B0%E9%97%AE%E9%A2%98/" title="算法专题_素数问题" class="md-nav__link">
+      算法专题_素数问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%8A%B1%E5%BC%8F%E9%81%8D%E5%8E%86/" title="矩阵的遍历" class="md-nav__link">
+      矩阵的遍历
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="算法专题_计算几何" class="md-nav__link">
+      算法专题_计算几何
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E6%B3%95/" title="贪心算法" class="md-nav__link">
+      贪心算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E6%90%9C%E7%B4%A2/" title="递归搜索" class="md-nav__link">
+      递归搜索
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-17" type="checkbox" id="nav-4-17">
+    
+    <label class="md-nav__link" for="nav-4-17">
+      字符串
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="字符串" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-17">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Aho-Corasick%E7%AE%97%E6%B3%95/" title="Aho-Corasick 算法" class="md-nav__link">
+      Aho-Corasick 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Boyer%20Moore%E7%AE%97%E6%B3%95/" title="Boyer Moore" class="md-nav__link">
+      Boyer Moore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/KMP%E7%AE%97%E6%B3%95/" title="KMP 算法" class="md-nav__link">
+      KMP 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Rabin-Karp%E7%AE%97%E6%B3%95/" title="Rabin-Karp 算法" class="md-nav__link">
+      Rabin-Karp 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Z%E7%AE%97%E6%B3%95/" title="Z 算法" class="md-nav__link">
+      Z 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%B4%E7%B4%A0%E7%AE%97%E6%B3%95/" title="朴素算法" class="md-nav__link">
+      朴素算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="有限自动机" class="md-nav__link">
+      有限自动机
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-18" type="checkbox" id="nav-4-18">
+    
+    <label class="md-nav__link" for="nav-4-18">
+      排序
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="排序" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-18">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        排序
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" title="希尔排序" class="md-nav__link">
+      希尔排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序" class="md-nav__link">
+      归并排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" title="排序算法比较" class="md-nav__link">
+      排序算法比较
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%A1%B6%E6%8E%92%E5%BA%8F/" title="桶排序" class="md-nav__link">
+      桶排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      编程语言
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        编程语言
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%2B%2B/" title="C++ 语言基础知识" class="md-nav__link">
+      C++ 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/" title="C 语言基础知识" class="md-nav__link">
+      C 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/leetcode/" title="leetcode 常用函数" class="md-nav__link">
+      leetcode 常用函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/python/" title="Python 语言基础知识" class="md-nav__link">
+      Python 语言基础知识
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 基础知识
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 与(&amp;)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 或(|)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 非(~)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 异或(^)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 除法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 相关的应用
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 相关的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 交换两个整数(不适用额外的空间)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 不用比较找出两个数中较大的数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 不使用任何算术运算只使用位运算实现加减乘除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-1" class="md-nav__link">
+    2.4 整数的二进制表达中有多少个1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 找出一个只出现一次的数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 找出两个只出现一次的数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 找出三个只出现一次的数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-k" class="md-nav__link">
+    2.8 在其他数字都出现K次的数组中找到只出现一次的数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-n" class="md-nav__link">
+    2.9 快速的求一个整数的N次方
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FF1204/leetcode/edit/master/docs/数据结构/位运算.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="_1">位运算<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>每种编程语言中都会有相关的位运算操作符，实现二进制的按位运算。
+位运算有四种：与(&amp;)，或(|)，非(~),异或(^)
+熟悉每种位运算的特点，是做与位运算有关的题目的基础。</p>
+<h2 id="1">1. 基础知识<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 与(&amp;)<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>0&amp;0=0; 0&amp;1=0; 1&amp;0=0; 1&amp;1=1;</code></li>
+<li>仔细观察上面的操作，发现与操作的结果与二进制加法的进位规则非常一致。
+<code>0+0=0 ; 0+1=0; 1+0=0; 1+1 = 1;</code> (此处等号后面的数字表示应该的进位)</li>
+<li><code>n = n&amp;(n-1)</code> 该操作的效果是把n的最后一个二进制1变为0. 此操作在涉及统计二进制数中1的个数的时候比较有用。</li>
+<li><code>n = n&amp;(~n+1)</code> 该操作的效果是把n的最右边的二进制1留下，其余的1全部置0.</li>
+<li><code>n = n&amp;(-n)</code> 该操作的效果是得到n的最后一个1</li>
+</ul>
+<h3 id="12">1.2 或(|)<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>0|0=0; 0|1=1; 1|0=1; 1|1=1;</code></li>
+<li>``</li>
+</ul>
+<h3 id="13">1.3 非(~)<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>~0=1; ~1=0</code></li>
+</ul>
+<h3 id="14">1.4 异或(^)<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>0^0=0;1^1=0; 0^1=1;1^0=1;</code></li>
+<li>仔细观察上面的操作，发现异或操作的结果与二进制加法(忽略进位的情况下)规则一致。
+<code>0+0=0;0+1=1;1+0=1;1+1=0;</code>(此处等号后面的数字是无进位加法的结果)</li>
+<li><code>a^0=a; a^a=0; a^a^a=a</code> 偶数个a异或的结果是0，奇数个a异或的结果是a.</li>
+<li><code>a^(a^b)=b;b^(a^b)=a;</code>  此规则可以用来交换两个数字，无需额外的空间</li>
+</ul>
+<h3 id="15">1.5 除法<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>(a)/(a &amp; (-a));</code>, 去除末尾的若干个0. 例如 1011000 -&gt; 1011</li>
+</ul>
+<h2 id="2">2. 相关的应用<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 交换两个整数(不适用额外的空间)<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>此题是典型的利用异或运算的性质求解的题。
+- <code>a^a = 0;  a^0 = a;</code>
+- <code>a^(a^b) = b ; b^(a^b) = a ;</code>
+具体的交换代码如下：
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
+分析一下这三行代码，我们把原来的a,b 记作a1,b1;把交换之后的记作a2,b2;最后要达到的结果是a2=b1;b2=a1;
+第一行，<code>a=a^b</code>, 此时a的值已经改变，变成了<code>a^b</code>的值；
+第二行变成<code>b = (a^b)^b = a</code>, 此时b的值已经改变，变成了a的值。
+第三行，此时的<code>a=a^b</code>,而<code>b=a</code>,所以 <code>a=a^b=(a^b)^a=b</code>,a变成了b的值。
+通过分析可以发现，其实充当暂存中间结果的变量是a, a先存储了a^b的值，然后去跟b异或得到a,再跟得到的a异或得到b.
+而一般的需要第三个变量做中介的交换思路是首先把b存起来，因为在b=a时，b的值丢失了。之所以利用异或不怕b的值丢失，
+是因为可以利用得到的a再次得到b.</p>
+<h3 id="22">2.2 不用比较找出两个数中较大的数<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><img alt="2017-03-21_222908.png" src="../img/2017-03-21_222908.png" /></p>
+<p>不用比较运算符比较两个数字的大小，可以使用减法运算符。
+如果也不能使用减法运算符，可以考虑只使用位运算实现减法运算。
+<code>a-b = c</code> 如果<code>c&gt;0,a&gt;b;</code> 如果<code>c&lt;0;c&lt;b;</code>但是不幸的是，还是用到的<code>&lt;</code>或者<code>&gt;</code>
+C++中有函数<code>signbit(x)</code>可以返回x的符号，使用的时候需要注意包含头文件<code>#include &lt;cmath&gt;</code>
+另外需要注意的问题就是整数的溢出，<code>a-b</code>如果a是正数，b是负数，就会变成两个整数相加，这时候如果二者都接近
+INT类型表示的边界，就会超出能够表示的最大的数的范围，产生正溢出。 同理，如果a是负数,b是正数，同样可能超出
+能够表示的最小的负数的范围，产生负溢出。
+幸运的是，如果知道二者异号，很容易判断谁大谁小。所以先判断是否是异号比较好，可以防止数据溢出产生错误。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="c1">//找出两个数中较大的数字，不使用任何比较运算</span>
+<span class="c1">// 不比较两个元素，只能做差</span>
+<span class="c1">//两个数做差或涉及到溢出的问题</span>
+<span class="c1">// a - b 如果a 接近最大的整数，b接近最大的负数， 就会溢出</span>
+<span class="c1">// a- b 如果a 接近最大的负数，b接近最大的正数，也会溢出</span>
+<span class="c1">//所以先判断正负，再做差</span>
+<span class="kt">int</span> <span class="nf">getMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">signbit</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">signbit</span><span class="p">(</span><span class="n">b</span><span class="p">)){</span><span class="k">return</span> <span class="n">b</span><span class="p">;}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">signbit</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">signbit</span><span class="p">(</span><span class="n">a</span><span class="p">)){</span><span class="k">return</span> <span class="n">a</span><span class="p">;}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">signbit</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)){</span><span class="k">return</span> <span class="n">b</span><span class="p">;}</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">getMax</span><span class="p">(</span><span class="mi">5435651</span><span class="p">,</span><span class="o">-</span><span class="mi">2393</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="23">2.3 不使用任何算术运算只使用位运算实现加减乘除<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>加法运算的思路
+不考虑进位的情况下， <code>a^b</code> 就是<code>a+b</code>的结果
+只考虑进位的情况下， <code>(a&amp;b)&lt;&lt;1</code> 就是<code>a+b</code>的结果
+所以综合二者，就能得到加法的正确答案。</p>
+</li>
+<li>
+<p>减法的思路
+<code>a-b = a+(-b);</code> 而<code>-b = ~b+1</code> 每个二进制位取反再加1.</p>
+</li>
+<li>
+<p>乘法运算的思路
+a*b 把b看成二进制位，每次把a左移（相当于乘以2），看b对应的位置上是否是1，
+是1就将结果加到最终的结果上，是0就不加，返回最后的结果。</p>
+</li>
+<li>
+<p>除法运算的思路
+<img alt="2017-03-21_223709.png" src="../img/2017-03-21_223709.png" />
+<img alt="2017-03-21_223758.png" src="../img/2017-03-21_223758.png" /></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cm">/**</span>
+<span class="cm"> * 用位运算实现加法运算</span>
+<span class="cm"> * 按照二进制位加法 0 + 0 = 0 | 0 + 1 = 1 | 1 + 1 = 0</span>
+<span class="cm"> * 如果不考虑进位，该规则正好与异或相同</span>
+<span class="cm"> *</span>
+<span class="cm"> * 考虑什么时候会产生进位 0 + 0 = 0 0 + 1 = 0 1+ 1 = 1</span>
+<span class="cm"> * 该规则正好与  &amp; 运算一致</span>
+<span class="cm"> *</span>
+<span class="cm"> * 所以分别考虑无进位相加和只考虑进位的结果  加在一起就好了。</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span><span class="n">a</span> <span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">b</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 用位实现减法运算， 不能用-运算符</span>
+<span class="cm"> * @param a</span>
+<span class="cm"> * @param b</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">minus2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="c1">// a - b == a + (-b)</span>
+    <span class="c1">// -b == ~b + 1</span>
+    <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">add</span><span class="p">(</span><span class="o">~</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 用位运算实现乘法</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">cheng</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">b</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">&amp;</span><span class="mi">1</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+            <span class="n">sum</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">sum</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">a</span><span class="o">&lt;&lt;=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">b</span><span class="o">&gt;&gt;=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cheng</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="24-1">2.4 整数的二进制表达中有多少个1<a class="headerlink" href="#24-1" title="Permanent link">&para;</a></h3>
+<p>题目： 给定一个32位的整数，可0，可正，可负，返回该整数的二进制表达中有多少个1.
+第一种方法是每次右移，然后统计1的个数，这种方法需要统计32次。
+第二种方法只有原来数字中有多少个1有关，1越少速度越快。
+n = n&amp;(n-1) 该操作可以抹掉n最右边的1
+n = n&amp;(~n+1) 该操作可以得到n最右侧的1
+使用上面的任意一种操作，可以设计算法实现只与1的个数有关的算法。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cm">/**</span>
+<span class="cm"> * 统计整数的二进制表达中有多少个1</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">getSum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">){</span>
+   <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">a</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&amp;</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+            <span class="n">sum</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * n&amp;(n-1)的作用就是消除n最右边的1</span>
+<span class="cm"> * @param a</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">getSumA</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">a</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="o">++</span><span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">getSumA</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="25">2.5 找出一个只出现一次的数字<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>题目： 一个整数数组中，只有一个数字只出现了一次，其他所有数字都出现的两次，找出这个出现一次的数字。
+变种： 一个整数数组中，只有一个数字出现了奇数次，其他所有的数字都出现了偶数次，找出这个出现奇数次的数字。
+了解异或运算特点，<code>a^a = 0;  a^0 = a; a^a^a = a;</code>
+出现偶数次的数在异或运算下都是0，出现奇数次的数异或之后就是它本身。
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 只有一个数字出现了奇数次，其余的数字都出现了偶数次，找出这个数字</span>
+<span class="cm"> * 找出这个数字</span>
+<span class="cm"> * @param v</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">research</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">re</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">a</span><span class="p">:</span><span class="n">v</span><span class="p">){</span>
+        <span class="n">re</span> <span class="o">=</span> <span class="n">re</span> <span class="o">^</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">re</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+这个题目还可以从另外一个角度去理解，K个K进制的数字如果忽略进位相加的话，结果一定是0.那么nK个K进制的数字相加的话，结果
+也一定是0. 而异或恰好是二进制无进位相加的实现。
+了解了这一点，如果我们能够像异或这样，实现任意的K进制数无进位相加的结果，就可以解决下面这样的问题：
+在其他数字都出现K次的数组中找出只出现一次的数字。</p>
+<h3 id="26">2.6 找出两个只出现一次的数字<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>题目：一个整数数组中，只有两个数字只出现了一次，其他所有数字都出现的两次，找出这两个数字。
+思路：异或一遍之后得到的结果是a^b， a,b必然有一位是不同的(如果结果是0，那么a=b，说明并没有两个只出现一次的数字)。
+根据这个二进制位将原来的数据分成两组，分别异或一遍即可得到这两个数字。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 只有两个数出现了奇数次，找出这两个数</span>
+<span class="cm"> * @param v</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">research2</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">v</span><span class="p">){</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">^</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">bit1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">r1</span> <span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">ab</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 现在r1保存的是两个出现奇数次的数的异或</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">j</span> <span class="p">:</span> <span class="n">v</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">j</span><span class="o">&amp;</span><span class="n">bit1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+           <span class="n">ab</span> <span class="o">=</span> <span class="n">ab</span> <span class="o">^</span> <span class="n">j</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ab</span><span class="p">);</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ab</span><span class="o">^</span><span class="n">r1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="27">2.7 找出三个只出现一次的数字<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>题目：一个整数数组中，只有三个数字只出现了一次，其他所有数字都出现的两次，找出这三个数字。
+思路：整体异或一遍，得到<code>x=a^b^c</code>. 设<code>f(x)</code>表示获取x的最后一位二进制1，例如<code>f(10100)=00100</code>. <code>n = f(x^a)^f(x^b)^f(x^c)</code>, 设n的最后一个二进制位1在第m位上。则有<code>x^a,x^b,x^c</code>只有一个数字在第m位上是1，其余的两个数字在第m位上都是0. (具体的推导过程参考<a href="http://zhedahht.blog.163.com/blog/static/25411174201283084246412/">这里</a>).</p>
+<p>算法步骤：</p>
+<ol>
+<li><code>abc = 0;  循环一遍：abc^=v[i]</code> , 得到<code>x=a^b^c</code>;</li>
+<li><code>g1 = 0; 循环一遍：g1^=getLastOne(abc^v[i]);</code>, 得到上面提到的n.</li>
+<li><code>g1 = getLastOne(g1)</code>, 得到分界数字，上面提到的第m位置1的数字。</li>
+<li>把所有满足<code>getLastOne( v[i] ^ abc ) == g1</code>条件的分成一组，该组中只包含<code>a,b,c</code>三个数字中的一个数字，异或一遍，得到a.</li>
+<li>剩下的就是找到两个数字了。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">getLastOne</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">solve</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">,</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">abc</span> <span class="o">=</span> <span class="n">abc</span> <span class="o">^</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">g1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">g1</span> <span class="o">=</span> <span class="n">g1</span> <span class="o">^</span> <span class="n">getLastOne</span><span class="p">(</span><span class="n">abc</span><span class="o">^</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="c1">// g1 只有1位是1，a,b,c中只有一个数字的这一位是1</span>
+    <span class="n">g1</span> <span class="o">=</span> <span class="n">getLastOne</span><span class="p">(</span><span class="n">g1</span><span class="p">);</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">getLastOne</span><span class="p">(</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">abc</span> <span class="p">)</span> <span class="o">==</span> <span class="n">g1</span><span class="p">){</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">bc</span> <span class="o">=</span> <span class="n">abc</span> <span class="o">^</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">getLastOne</span><span class="p">(</span><span class="n">bc</span><span class="p">);</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&amp;</span><span class="n">g2</span> <span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">a</span><span class="p">){</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">^</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">bc</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="28-k">2.8 在其他数字都出现K次的数组中找到只出现一次的数<a class="headerlink" href="#28-k" title="Permanent link">&para;</a></h3>
+<p>这里要明白一个规律，K个相同的K进制的数无进位相加的话，结果必然是0，因为所有是0的位还是0，所有不是0的位都加到了需要进位，除去进位，就是0.
+明白了上面的一点，这个问题就容易解决了。首先把所有的数字转换成K进制，然后实现无进位相加的函数,再把结果转换回十进制输出即可。</p>
+<p>另外一种解法：</p>
+<p>可以统计所有数字每个二进制位上1的个数。然后每个二进制位对K取余，哪些出现K次的数字累加到对应位上的和肯定是K的倍数，取余之后就是0.剩下来的就是那个只出现一次的数字。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 将一个十进制的数转换成K进制</span>
+<span class="cm"> * @param n</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">Kin</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="n">k</span><span class="p">);</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="n">k</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 将K进制的deque转换成10进制</span>
+<span class="cm"> * @param v</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="n">Kinverse</span><span class="p">(</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">,</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">v</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">*</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="kt">float</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="n">i</span><span class="p">);</span>
+        <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 实现两个vector按照K进制相加，忽略进位</span>
+<span class="cm"> * @param v1</span>
+<span class="cm"> * @param v2</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">addV</span><span class="p">(</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">,</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">,</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">.</span><span class="n">size</span><span class="p">()){</span>
+        <span class="k">auto</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">v1</span><span class="p">;</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">v2</span><span class="p">;</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">v2</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span> <span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">+</span> <span class="n">v2</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="p">)</span> <span class="o">%</span> <span class="n">k</span> <span class="p">);</span>
+        <span class="n">v1</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="n">v2</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">v1</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span> <span class="n">v1</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="p">);</span>
+        <span class="n">v1</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * 实现v中的十进制数按照K进制相加，忽略进位，返回和</span>
+<span class="cm"> * @param v</span>
+<span class="cm"> * @param k</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="n">Kplus</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">,</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">v</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">addV</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="n">Kin</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">k</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">Kinverse</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">//    vector&lt;int&gt; v = {1,2,2,3,3,4,4,5,5,70};</span>
+<span class="c1">//    auto reuslt = research2(v);</span>
+<span class="c1">//    std::cout &lt;&lt; reuslt[0] &lt;&lt;&quot; &quot;&lt;&lt;reuslt[1] &lt;&lt; std::endl;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">};</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">Kplus</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">solve</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">,</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">counts</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">){</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+            <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">k</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">counts</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">number</span> <span class="o">+=</span> <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">base</span><span class="p">;</span>
+        <span class="n">base</span>  <span class="o">=</span> <span class="n">base</span> <span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="29-n">2.9 快速的求一个整数的N次方<a class="headerlink" href="#29-n" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;bitset&gt;</span><span class="cp"></span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cm">/**</span>
+<span class="cm"> * f(n) = f(n-1) + f(n-2)</span>
+<span class="cm"> * 1 1 2 3 5 8 ...</span>
+<span class="cm"> * 要求实现O(logn)的算法</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">getNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+            <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+            <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">i</span><span class="p">:</span><span class="n">v</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param n</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">getNum2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">n</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+            <span class="kt">double</span> <span class="n">t</span> <span class="o">=</span> <span class="n">powf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">powf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">n</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+        <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">sum</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../%E6%8E%92%E5%BA%8F/" title="排序" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                排序
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../%E5%89%8D%E7%BC%80%E6%A0%91/" title="字典树(Trie树)" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                字典树(Trie树)
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+	
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+	<script>
+		(function() {
+			var table_element = $('div.table_filter_start').nextUntil('div.table_filter_end', 'table');
+			table_element.attr('id', 'table_filter');
+			table_element.attr('data-filter-control', 'false'); 
+			table_element.attr('data-search', 'true');
+			table_element.addClass('table-sm');
+			table_element.addClass('table-striped');
+			
+			var th_element = $('#table_filter thead th');
+			var count = th_element.length;
+			for (var i = 0; i < count; i++) {
+				var th = $("#table_filter thead th:eq(" + i + ")");
+				th.attr('data-field','data' + i);
+			}
+			th_element.attr('data-filter-control', 'input');
+			th_element.attr('data-sortable', 'true');
+		  })();
+	</script>
+	<script>
+	  $(function() {
+		$('#table_filter').bootstrapTable()
+	  })
+	</script>
+
+  </body>
+</html>

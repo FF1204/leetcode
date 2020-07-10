@@ -1,0 +1,2371 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>链表 - FEIFEI</title>
+      
+    
+    
+	
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    
+	
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/multiple-sort/bootstrap-table-multiple-sort.js"></script>
+
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="FEIFEI" class="md-header-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            FEIFEI
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              链表
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FEIFEI" class="md-nav__button md-logo" aria-label="FEIFEI">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    FEIFEI
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/FF1204/leetcode/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FF1204/leetcode
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../readme/" title="题目汇总" class="md-nav__link">
+      题目汇总
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      工具
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="工具" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Linux 常用命令" class="md-nav__link">
+      Linux 常用命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/SourceInsight%E5%AE%8F/" title="SouceInsight宏的使用" class="md-nav__link">
+      SouceInsight宏的使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/gdb%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" title="GDB调试技巧" class="md-nav__link">
+      GDB调试技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/mkdocs/" title="mkdocs" class="md-nav__link">
+      mkdocs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" title="VS Code 配置多种编译调试环境" class="md-nav__link">
+      VS Code 配置多种编译调试环境
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      数据结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数据结构" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        数据结构
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%88/" title="栈" class="md-nav__link">
+      栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E9%98%9F%E5%88%97/" title="队列" class="md-nav__link">
+      队列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        链表
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="链表" class="md-nav__link md-nav__link--active">
+      链表
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 链表的基本操作
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 链表的基本操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 链表节点结构的定义
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 链表节点结构的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    1.1.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    1.1.2 双向链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 链表的创建
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 链表的创建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    1.2.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 链表的插入
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 链表的插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    1.3.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    1.3.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    1.3.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 链表的删除
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 链表的删除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    1.4.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    1.4.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    1.4.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 链表的替换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 链表的反向
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 链表的反向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161" class="md-nav__link">
+    1.6.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162" class="md-nav__link">
+    1.6.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#163" class="md-nav__link">
+    1.6.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 链表的可视化
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 链表的可视化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171" class="md-nav__link">
+    1.7.1 打印单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172" class="md-nav__link">
+    1.7.2 打印双向链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 单链表类的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 双向链表类的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 链表操作的完整示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 链表相关的习题
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表" class="md-nav__link">
+      哈希表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树" class="md-nav__link">
+      二叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%A4%9A%E5%8F%89%E6%A0%91/" title="多叉树" class="md-nav__link">
+      多叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      图
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="图" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        图
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E5%9B%BE%28%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%29/" title="图(基础知识)" class="md-nav__link">
+      图(基础知识)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树" class="md-nav__link">
+      最小生成树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" title="最短路径问题" class="md-nav__link">
+      最短路径问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%9B%BE/%E7%BD%91%E7%BB%9C%E6%B5%81/" title="网络流" class="md-nav__link">
+      网络流
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%8E%92%E5%BA%8F/" title="排序" class="md-nav__link">
+      排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E4%BD%8D%E8%BF%90%E7%AE%97/" title="位运算" class="md-nav__link">
+      位运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%89%8D%E7%BC%80%E6%A0%91/" title="字典树(Trie树)" class="md-nav__link">
+      字典树(Trie树)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%A0%86/" title="堆" class="md-nav__link">
+      堆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集" class="md-nav__link">
+      并查集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" title="树状数组" class="md-nav__link">
+      树状数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树[区间树]" class="md-nav__link">
+      线段树[区间树]
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      算法
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="算法" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/" title="N皇后问题" class="md-nav__link">
+      N皇后问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95/" title="分治法" class="md-nav__link">
+      分治法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划" class="md-nav__link">
+      动态规划
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="博弈论" class="md-nav__link">
+      博弈论
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9B%E7%AD%89%E5%88%86%E6%95%B0%E7%BB%84/" title="四等分数组" class="md-nav__link">
+      四等分数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%96%87/" title="回文算法和题目" class="md-nav__link">
+      回文算法和题目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%A4%A7%E6%95%B0%E6%8D%AE/" title="算法专题_大数据和空间限制" class="md-nav__link">
+      算法专题_大数据和空间限制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%BE%AA%E7%8E%AF%E5%8F%B3%E7%A7%BB/" title="循环右移" class="md-nav__link">
+      循环右移
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" title="排列组合" class="md-nav__link">
+      排列组合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95/" title="摩尔投票法" class="md-nav__link">
+      摩尔投票法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%A8%A1%E8%BF%90%E7%AE%97/" title="算法专题_模运算" class="md-nav__link">
+      算法专题_模运算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E7%B4%A0%E6%95%B0%E9%97%AE%E9%A2%98/" title="算法专题_素数问题" class="md-nav__link">
+      算法专题_素数问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%8A%B1%E5%BC%8F%E9%81%8D%E5%8E%86/" title="矩阵的遍历" class="md-nav__link">
+      矩阵的遍历
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="算法专题_计算几何" class="md-nav__link">
+      算法专题_计算几何
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E6%B3%95/" title="贪心算法" class="md-nav__link">
+      贪心算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E6%90%9C%E7%B4%A2/" title="递归搜索" class="md-nav__link">
+      递归搜索
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-17" type="checkbox" id="nav-4-17">
+    
+    <label class="md-nav__link" for="nav-4-17">
+      字符串
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="字符串" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-17">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Aho-Corasick%E7%AE%97%E6%B3%95/" title="Aho-Corasick 算法" class="md-nav__link">
+      Aho-Corasick 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Boyer%20Moore%E7%AE%97%E6%B3%95/" title="Boyer Moore" class="md-nav__link">
+      Boyer Moore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/KMP%E7%AE%97%E6%B3%95/" title="KMP 算法" class="md-nav__link">
+      KMP 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Rabin-Karp%E7%AE%97%E6%B3%95/" title="Rabin-Karp 算法" class="md-nav__link">
+      Rabin-Karp 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/Z%E7%AE%97%E6%B3%95/" title="Z 算法" class="md-nav__link">
+      Z 算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%B4%E7%B4%A0%E7%AE%97%E6%B3%95/" title="朴素算法" class="md-nav__link">
+      朴素算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E8%87%AA%E5%8A%A8%E6%9C%BA/" title="有限自动机" class="md-nav__link">
+      有限自动机
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-18" type="checkbox" id="nav-4-18">
+    
+    <label class="md-nav__link" for="nav-4-18">
+      排序
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="排序" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-18">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        排序
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" title="希尔排序" class="md-nav__link">
+      希尔排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序" class="md-nav__link">
+      归并排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" title="排序算法比较" class="md-nav__link">
+      排序算法比较
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%A1%B6%E6%8E%92%E5%BA%8F/" title="桶排序" class="md-nav__link">
+      桶排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      编程语言
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="编程语言" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        编程语言
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%2B%2B/" title="C++ 语言基础知识" class="md-nav__link">
+      C++ 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/" title="C 语言基础知识" class="md-nav__link">
+      C 语言基础知识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/leetcode/" title="leetcode 常用函数" class="md-nav__link">
+      leetcode 常用函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/python/" title="Python 语言基础知识" class="md-nav__link">
+      Python 语言基础知识
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 链表的基本操作
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 链表的基本操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 链表节点结构的定义
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 链表节点结构的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    1.1.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    1.1.2 双向链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 链表的创建
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 链表的创建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    1.2.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 链表的插入
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 链表的插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    1.3.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    1.3.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    1.3.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 链表的删除
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 链表的删除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    1.4.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    1.4.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    1.4.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 链表的替换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 链表的反向
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 链表的反向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161" class="md-nav__link">
+    1.6.1 单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162" class="md-nav__link">
+    1.6.2 双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#163" class="md-nav__link">
+    1.6.3 循环链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 链表的可视化
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 链表的可视化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171" class="md-nav__link">
+    1.7.1 打印单链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172" class="md-nav__link">
+    1.7.2 打印双向链表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 单链表类的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 双向链表类的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 链表操作的完整示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 链表相关的习题
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FF1204/leetcode/edit/master/docs/数据结构/链表.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="_1">链表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>链表是一种用指针串联起来的顺序结构，主要优点是增删快，主要缺点是无法向数组那样快速取出某个元素。
+链表是一种比较基础的数据结构，主要类型有单链表，双链表，循环链表等。
+链表的实现可以使用数组；也可以使用结构体和指针实现。</p>
+<h2 id="1">1. 链表的基本操作<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>C++11的标准中，结构体和类并没有本质的不同。所有可以用结构体和类来定义节点的数据结构。
+单链表通常包含一个<code>val</code>和一个指向下一个节点的指针<code>*next</code>,双向链表通常包含一个<code>val</code>和两个指针<code>*pre</code>,<code>*next</code>,分别指向前面的节点和后面的节点。</p>
+<h3 id="11">1.1 链表节点结构的定义<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<h4 id="111">1.1.1 单链表<a class="headerlink" href="#111" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">//单链表节点的定义-使用结构体</span>
+<span class="k">struct</span> <span class="n">Node</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">Node</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">//使用类</span>
+<span class="n">class</span> <span class="n">ListNode</span> <span class="p">{</span>
+<span class="nl">public</span><span class="p">:</span>
+     <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
+     <span class="n">ListNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+     <span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">this</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+         <span class="n">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>
+
+<h4 id="112">1.1.2 双向链表<a class="headerlink" href="#112" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">//双向链表</span>
+<span class="k">struct</span> <span class="n">BiNode</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">pre</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">BiNode</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">pre</span><span class="p">(</span><span class="n">nullptr</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="n">BiNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">pre</span><span class="p">(</span><span class="n">nullptr</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<h3 id="12">1.2 链表的创建<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 单链表<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<p>首先判断是不是空，如果是空，返回空链表
+如果不是空，创建第一个元素的节点，并用头指针指向它，日后返回这个头指针；
+然后从第二个元素开始，创建新的节点，把这个节点赋值个前一个节点的next指针，然后更新tmp指向当前新创建的节点。
+核心的语句：
+<div class="highlight"><pre><span></span><code><span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="o">*</span> <span class="nf">createLinks</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">//头节点，最后需要返回创建的链表的头结点，所以头结点需要保存下来</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="122">1.2.2 双链表<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
+<p>双向链表的创建需要返回两个指针，一个指向头部，便于正向遍历链表；另外一个指向尾部，便于逆向遍历链表
+首先判断是不是空，如果是空，返回空链表
+用第一个元素创建节点，并用头节点指向它
+创建临时变量指向第一个节点，此临时变量一直指向当前创建的节点
+从数组的第二个元素开始创建新的节点，创建的节点的pre设置为tmp, 然后把tmp的next赋值成node,即让tmp所指向的节点连接到当前创建的节点上
+更新tmp使它指向当前新创建的节点。
+循环体结束后，tmp正好指向最会一个创建的节点，所以把tmp赋值给tail
+返回head和tail;
+关键语句：
+<div class="highlight"><pre><span></span><code>BiNode *node = new BiNode(v[i]);
+node-&gt;pre = tmp;
+tmp-&gt;next = node;
+tmp = tmp-&gt;next;
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">pair</span><span class="o">&lt;</span><span class="n">BiNode</span><span class="o">*</span><span class="p">,</span><span class="n">BiNode</span><span class="o">*&gt;</span> <span class="n">createBiNode</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">,</span><span class="n">nullptr</span><span class="p">};</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+         <span class="n">node</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+         <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+         <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tail</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">head</span><span class="p">,</span><span class="n">tail</span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="123">1.2.3 循环链表<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
+<p>循环链表就是结尾的元素又指向了开头的元素。所以创建过程基本上是一样的，指示在结尾的处理稍有不同。
+循环单链表只需要在结尾添加<code>tmp-&gt;next = head;</code>
+循环双向链表只需要在结尾添加<code>tail-&gt;next = head;  // 尾元素的后面是头元素  head-&gt;pre = tail;  // 头元素的前面是尾元素</code> .</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//创建循环单链表</span>
+<span class="n">Node</span><span class="o">*</span> <span class="nf">createLinksCycle</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">//头节点，最后需要返回创建的链表的头结点，所以头结点需要保存下来</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span> <span class="c1">// 让结尾指向开头的第一个元素</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">//创建循环双链表</span>
+<span class="n">pair</span><span class="o">&lt;</span><span class="n">BiNode</span><span class="o">*</span><span class="p">,</span><span class="n">BiNode</span><span class="o">*&gt;</span> <span class="n">createBiNodeCycle</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">,</span><span class="n">nullptr</span><span class="p">};</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tail</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>  <span class="c1">// 尾元素的后面是头元素</span>
+    <span class="n">head</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>  <span class="c1">// 头元素的前面是尾元素</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">head</span><span class="p">,</span><span class="n">tail</span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="13">1.3 链表的插入<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<h4 id="131">1.3.1 单链表<a class="headerlink" href="#131" title="Permanent link">&para;</a></h4>
+<p>要在单链表中插入一个节点，只需要知道插入位置的前一个节点就可以了。假设c指向了插入位置的前一个节点，n是新创建的节点
+那么插入的方法是：</p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span> <span class="p">;</span> <span class="c1">//新节点n的后一个节点设置成c的后一个节点</span>
+<span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">//c节点指向新插入的节点</span>
+</code></pre></div>
+
+<p>注意如果插入的位置是链表的头部，需要单独处理。</p>
+<div class="highlight"><pre><span></span><code>n-&gt;next = head; //新插入的节点的下一个节点连接到头节点
+head = n; //头结点编程新插入的节点
+</code></pre></div>
+
+<h4 id="132">1.3.2 双链表<a class="headerlink" href="#132" title="Permanent link">&para;</a></h4>
+<p>双链表既可以向前访问，也可以向后访问。所以插入一个节点，只需要知道要插入的位置的前一个节点，或者要插入位置的后一个节点就可以了。
+假设c代表要插入位置的前一个节点；n代表新插入的节点，b代表插入位置的后一个节点。
+利用c的插入方法是：
+<div class="highlight"><pre><span></span><code><span class="n">n</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// 这两句将新的节点和后面的节点连接起来</span>
+<span class="n">n</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+<span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">//这两句将c和n连接起来</span>
+</code></pre></div>
+如果要在头节点之前插入，会发现头结点之前没有节点了，所以不能使用上面的语句，需要另外处理：
+<div class="highlight"><pre><span></span><code><span class="n">n</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+<span class="n">head</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">head</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</code></pre></div>
+利用b的插入方法是：
+<div class="highlight"><pre><span></span><code><span class="n">n</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+<span class="n">b</span><span class="o">-&gt;</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// 把新的节点和b前面的节点连接起来</span>
+<span class="n">n</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>  <span class="c1">// 把新的节点和b连接起来</span>
+</code></pre></div>
+如果在最后一个节点后面插入节点，会发现没有b,这个时候需要另外处理：
+<div class="highlight"><pre><span></span><code><span class="n">n</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+<span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">tail</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</code></pre></div></p>
+<h4 id="133">1.3.3 循环链表<a class="headerlink" href="#133" title="Permanent link">&para;</a></h4>
+<p>循环链表的插入和删除没有了像上面不循环的链表那样需要另外处理头部和尾部的情况。所以插入操作更加简单。
+如果插入的是头节点的话，注意head的更新情况即可。</p>
+<h3 id="14">1.4 链表的删除<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<h4 id="141">1.4.1 单链表<a class="headerlink" href="#141" title="Permanent link">&para;</a></h4>
+<p>删除单链表的某一个节点，只需要知道该节点的前一个节点。假设要删除的节点的前一个节点是c.
+删除操作：<code>c-&gt;next = c-&gt;next-&gt;next;</code> 如果删除的是第一个节点，则直接<code>head = head-&gt;next;</code>
+如果删除的是最后一个节点，则直接<code>c-&gt;next=nullptr</code>.</p>
+<h4 id="142">1.4.2 双链表<a class="headerlink" href="#142" title="Permanent link">&para;</a></h4>
+<p>同插入类似，双链表的删除只需要知道要删除的节点的前一个节点或者后一个节点就可以了。假设c是前一个节点，b是后一个节点。
+删除操作1：
+<div class="highlight"><pre><span></span><code><span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="n">c</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+</code></pre></div></p>
+<p>删除操作2：
+<div class="highlight"><pre><span></span><code><span class="n">b</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+<span class="n">b</span><span class="o">-&gt;</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</code></pre></div></p>
+<p>删除首节点和尾节点同样需要特殊考虑；
+删除首节点：<code>b-&gt;pre = nullptr;head = b</code>;
+删除尾节点：<code>c-&gt;next=nullptr;tail=c;</code>
+需要的注意的是，这样做只是从head和tail开始访问的话，再也访问不到被删除的节点，但是实际上，从删除的节点还有指针指向这个链表的某个节点。
+如果想要删除干净，就是彻底断开连接，可以使用下面的语句：
+删除首节点：<code>b-&gt;pre-&gt;next=nullptr; b-&gt;pre=nullptr;head=b;</code>
+删除尾节点：<code>c-&gt;next-&gt;pre=nullptr;c-&gt;next=nullptr;tail=c;</code></p>
+<h4 id="143">1.4.3 循环链表<a class="headerlink" href="#143" title="Permanent link">&para;</a></h4>
+<p>循环链表的插入和删除同样不需要考虑特殊的情况，如果插入的是头节点的话，注意head的更新情况即可。</p>
+<h3 id="15">1.5 链表的替换<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<p>想要更新链表中的某个值，只需要查找到该节点c，然后执行<code>c-&gt;val = new_value;</code>即可。</p>
+<h3 id="16">1.6 链表的反向<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<h4 id="161">1.6.1 单链表<a class="headerlink" href="#161" title="Permanent link">&para;</a></h4>
+<p>基本思路是设置三个指针pre,current,next;分别代表相邻的三个节点。
+每次循环执行下面的操作：
+<div class="highlight"><pre><span></span><code><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 首先记录current的下一个节点</span>
+<span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// curent的下一个节点设置为前一个节点</span>
+<span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span> <span class="c1">// pre向前推进一个元素</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//current像前推进一个元素</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="o">*</span> <span class="nf">notLinks</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">pre</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+        <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 首先记录current的下一个节点</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// curent的下一个节点设置为前一个节点</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span> <span class="c1">// pre向前推进一个元素</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//current像前推进一个元素</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">//返回指向新链表的头节点</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="162">1.6.2 双链表<a class="headerlink" href="#162" title="Permanent link">&para;</a></h4>
+<p>双向链表的反转与单向链表的思路一致，设置三个指针pre,current,next分别指向相邻的三个节点；
+每次循环这样操作：
+<div class="highlight"><pre><span></span><code><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 首先记录current的下一个节点</span>
+<span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// curent的下一个节点设置为前一个节点</span>
+<span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+<span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span> <span class="c1">// pre向前推进一个元素</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//current像前推进一个元素</span>
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><span class="n">BiNode</span><span class="o">*</span> <span class="nf">notBiLinks</span><span class="p">(</span><span class="n">BiNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">pre</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">next</span><span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+        <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 首先记录current的下一个节点</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// curent的下一个节点设置为前一个节点</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span> <span class="c1">// pre向前推进一个元素</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//current像前推进一个元素</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">//返回指向新链表的头节点</span>
+<span class="p">}</span>
+</code></pre></div>
+当然，在逻辑上双向链表是没有正反的，以上所说的反向是在相同的输出函数下，输出的顺序正好相反。
+也可以利用这一点反转双向链表，只需要把链表节点的指针pre,next交换一下即可。具体代码如下：
+<div class="highlight"><pre><span></span><code><span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+<span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>  <span class="c1">// 以上三行交换两个变量的值</span>
+<span class="n">newHead</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>   <span class="c1">//存储下来当前节点，日后返回该节点</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span> <span class="c1">//处理下一个节点</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">BiNode</span><span class="o">*</span> <span class="nf">notBiLinks2</span><span class="p">(</span><span class="n">BiNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">newHead</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">newHead</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">newHead</span><span class="p">;</span> <span class="c1">//返回指向新链表的头节点</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="163">1.6.3 循环链表<a class="headerlink" href="#163" title="Permanent link">&para;</a></h4>
+<p>循环链表的反转没有什么实际的意义，只是用来练习链表的处理。具体的步骤和上面的基本相同。</p>
+<h3 id="17">1.7 链表的可视化<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
+<h4 id="171">1.7.1 打印单链表<a class="headerlink" href="#171" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">printLinks</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;empty&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+打印出来的样式</p>
+<blockquote>
+<p>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6</p>
+</blockquote>
+<h4 id="172">1.7.2 打印双向链表<a class="headerlink" href="#172" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">printBiLinks</span><span class="p">(</span><span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;empty&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="k">return</span><span class="p">;}</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;[&quot;</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;]&quot;</span><span class="o">&lt;&lt;</span><span class="s">&quot;&lt;-&gt;&quot;</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;[&quot;</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;]&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>打印出来的样式</p>
+<div class="highlight"><pre><span></span><code>&gt; [1]&lt;-&gt;[2]&lt;-&gt;[3]&lt;-&gt;[4]&lt;-&gt;[5]&lt;-&gt;[6]
+</code></pre></div>
+
+<h2 id="2">2. 单链表类的定义<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">class</span> <span class="n">Links</span><span class="p">{</span>
+<span class="nl">public</span><span class="p">:</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span> <span class="c1">// 头节点</span>
+    <span class="n">Links</span><span class="p">()</span> <span class="o">:</span> <span class="n">head</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="c1">//创建链表</span>
+    <span class="n">Links</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+            <span class="n">Node</span> <span class="o">*</span><span class="n">first</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+            <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//打印链表</span>
+    <span class="kt">void</span> <span class="n">printLinks</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;empty&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">;</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//反转这个链表</span>
+    <span class="kt">void</span> <span class="n">inverseLinks</span><span class="p">(){</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">head</span><span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<h2 id="3">3. 双向链表类的定义<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1">//双向链表的实现</span>
+<span class="n">class</span> <span class="n">BiLinks</span><span class="p">{</span>
+<span class="nl">public</span><span class="p">:</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tail</span><span class="p">;</span>
+    <span class="n">BiLinks</span><span class="p">()</span> <span class="o">:</span> <span class="n">head</span><span class="p">(</span><span class="n">nullptr</span><span class="p">),</span><span class="n">tail</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="n">BiLinks</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">first</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">BiNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+            <span class="n">node</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">tail</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">printBiLinks</span><span class="p">(){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">tail</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;empty!&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="k">return</span><span class="p">;}</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;[&quot;</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;]&quot;</span><span class="o">&lt;&lt;</span><span class="s">&quot;-&gt;&quot;</span><span class="p">;</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;[&quot;</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;]&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">pre</span><span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;&lt;-&gt;&quot;</span><span class="p">;</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">inverseBiLinks</span><span class="p">(){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">head</span><span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+            <span class="n">head</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<h2 id="4">4. 链表操作的完整示例<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">Node</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">Node</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+<span class="p">};</span>
+<span class="c1">//双向链表</span>
+<span class="k">struct</span> <span class="n">BiNode</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">pre</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">BiNode</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">pre</span><span class="p">(</span><span class="n">nullptr</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="n">BiNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">pre</span><span class="p">(</span><span class="n">nullptr</span><span class="p">),</span><span class="n">next</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+<span class="p">};</span>
+<span class="n">Node</span><span class="o">*</span> <span class="nf">createLinks</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">//头节点，最后需要返回创建的链表的头结点，所以头结点需要保存下来</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//创建循环单链表</span>
+<span class="n">Node</span><span class="o">*</span> <span class="nf">createLinksCycle</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">//头节点，最后需要返回创建的链表的头结点，所以头结点需要保存下来</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span> <span class="c1">// 让结尾指向开头的第一个元素</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">pair</span><span class="o">&lt;</span><span class="n">BiNode</span><span class="o">*</span><span class="p">,</span><span class="n">BiNode</span><span class="o">*&gt;</span> <span class="n">createBiNode</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">,</span><span class="n">nullptr</span><span class="p">};</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tail</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">head</span><span class="p">,</span><span class="n">tail</span><span class="p">};</span>
+<span class="p">}</span>
+<span class="c1">//创建循环双链表</span>
+<span class="n">pair</span><span class="o">&lt;</span><span class="n">BiNode</span><span class="o">*</span><span class="p">,</span><span class="n">BiNode</span><span class="o">*&gt;</span> <span class="n">createBiNodeCycle</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">,</span><span class="n">nullptr</span><span class="p">};</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BiNode</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+        <span class="n">node</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tail</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>  <span class="c1">// 尾元素的后面是头元素</span>
+    <span class="n">head</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>  <span class="c1">// 头元素的前面是尾元素</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">head</span><span class="p">,</span><span class="n">tail</span><span class="p">};</span>
+<span class="p">}</span>
+<span class="c1">//反转单向链表</span>
+<span class="n">Node</span><span class="o">*</span> <span class="n">notLinks</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">pre</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+        <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 首先记录current的下一个节点</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// curent的下一个节点设置为前一个节点</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span> <span class="c1">// pre向前推进一个元素</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//current像前推进一个元素</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">//返回指向新链表的头节点</span>
+<span class="p">}</span>
+<span class="n">BiNode</span><span class="o">*</span> <span class="n">notBiLinks</span><span class="p">(</span><span class="n">BiNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">pre</span><span class="o">=</span><span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">next</span><span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+        <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="c1">// 首先记录current的下一个节点</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// curent的下一个节点设置为前一个节点</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span> <span class="c1">// pre向前推进一个元素</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//current像前推进一个元素</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">//返回指向新链表的头节点</span>
+<span class="p">}</span>
+<span class="n">BiNode</span><span class="o">*</span> <span class="n">notBiLinks2</span><span class="p">(</span><span class="n">BiNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span> <span class="o">||</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">newHead</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">current</span><span class="p">){</span>
+        <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">newHead</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">newHead</span><span class="p">;</span> <span class="c1">//返回指向新链表的头节点</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">printLinks</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;empty&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">printBiLinks</span><span class="p">(</span><span class="n">BiNode</span> <span class="o">*</span><span class="n">head</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">){</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;empty&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="k">return</span><span class="p">;}</span>
+    <span class="n">BiNode</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;[&quot;</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;]&quot;</span><span class="o">&lt;&lt;</span><span class="s">&quot;&lt;-&gt;&quot;</span><span class="p">;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;[&quot;</span><span class="o">&lt;&lt;</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="s">&quot;]&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">class</span> <span class="n">Links</span><span class="p">{</span>
+<span class="nl">public</span><span class="p">:</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span> <span class="c1">// 头节点</span>
+    <span class="n">Links</span><span class="p">()</span> <span class="o">:</span> <span class="n">head</span><span class="p">(</span><span class="n">nullptr</span><span class="p">){}</span>
+    <span class="c1">//创建链表</span>
+    <span class="n">Links</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+            <span class="n">Node</span> <span class="o">*</span><span class="n">first</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+            <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Node</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//打印链表</span>
+    <span class="kt">void</span> <span class="n">printLinks</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;empty&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="n">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">;</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//反转这个链表</span>
+    <span class="kt">void</span> <span class="n">inverseLinks</span><span class="p">(){</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">head</span><span class="o">!=</span> <span class="n">nullptr</span><span class="p">){</span>
+            <span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">};</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">createLinks</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="c1">//    Node *CHead = createLinksCycle(v);</span>
+<span class="c1">//    Node *IHead = notLinks(head);</span>
+    <span class="k">auto</span> <span class="n">Binode</span> <span class="o">=</span> <span class="n">createBiNode</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="c1">//    auto *IBiHead = notBiLinks2(Binode.first);</span>
+<span class="c1">//    auto BinodeC = createBiNodeCycle(v);</span>
+    <span class="n">printLinks</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+    <span class="n">printBiLinks</span><span class="p">(</span><span class="n">Binode</span><span class="p">.</span><span class="n">first</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="5">5. 链表相关的习题<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">LeetCode题目</th>
+<th align="center">难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="../../leetcode/23/readme/">23. 合并K个排序链表</a></td>
+<td align="center">中等</td>
+</tr>
+<tr>
+<td align="left"><a href="../../leetcode/24/readme/">24. 两两交换链表中的节点</a></td>
+<td align="center">中等</td>
+</tr>
+<tr>
+<td align="left"><a href="../../leetcode/25/readme/">25. K 个一组翻转链表</a></td>
+<td align="center">困难</td>
+</tr>
+<tr>
+<td align="left"><a href="../../leetcode/82/readme/">82. 删除排序链表中的重复元素 II</a></td>
+<td align="center">中等</td>
+</tr>
+<tr>
+<td align="left"><a href="../../leetcode/83/readme/">83. 删除排序链表中的重复元素</a></td>
+<td align="center">简单</td>
+</tr>
+<tr>
+<td align="left"><a href="../../leetcode/138/readme/">138. 复制带随机指针的链表</a></td>
+<td align="center">中等</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">LintCode题目</th>
+<th align="center">难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="../../lintcode/link/">链表</a></td>
+<td align="center">题目合集</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../%E9%98%9F%E5%88%97/" title="队列" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                队列
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                哈希表
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+	
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+	<script>
+		(function() {
+			var table_element = $('div.table_filter_start').nextUntil('div.table_filter_end', 'table');
+			table_element.attr('id', 'table_filter');
+			table_element.attr('data-filter-control', 'false'); 
+			table_element.attr('data-search', 'true');
+			table_element.addClass('table-sm');
+			table_element.addClass('table-striped');
+			
+			var th_element = $('#table_filter thead th');
+			var count = th_element.length;
+			for (var i = 0; i < count; i++) {
+				var th = $("#table_filter thead th:eq(" + i + ")");
+				th.attr('data-field','data' + i);
+			}
+			th_element.attr('data-filter-control', 'input');
+			th_element.attr('data-sortable', 'true');
+		  })();
+	</script>
+	<script>
+	  $(function() {
+		$('#table_filter').bootstrapTable()
+	  })
+	</script>
+
+  </body>
+</html>
