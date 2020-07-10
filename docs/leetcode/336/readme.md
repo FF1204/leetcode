@@ -19,14 +19,36 @@
 
 ### 方法一
 
-暴力枚举, 可以通过80 / 134 个用例。
+暴力枚举, 110/134 cases passed (N/A)
 
-[C](336_2.c)
+```pyhton
+
+class Solution:
+    def palindromePairs(self, words: List[str]) -> List[List[int]]:
+        def valid(string):
+            m = len(string)
+            left, right = 0, m-1
+            while left < right:
+                if string[left] != string[right]:
+                    return False
+                left += 1
+                right -= 1
+            return True
+            
+        n = len(words)
+        ans = []
+        for i in range(n):
+            for j in range(n):
+                if i != j:
+                    string = words[i] + words[j]
+                    if valid(string):
+                        ans.append([i, j])
+        return ans
+```
 
 ### 方法二
 
-遍历每一个单词，首先加入字典树，然后从字典树中查找是否有其反序， 其去掉最后一个字母反序的字符串在字典树中，
-如果有，得到一组结果。注意自己和自己拼接的不算。
+
 
 [C](336.c)
 
